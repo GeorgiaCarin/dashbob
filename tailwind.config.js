@@ -17,7 +17,7 @@ export default {
 
         'light-green-50': 'var(--light-green-50)',
 
-        'light-green-400': 'var(--light-green-400)',
+        'light-green-200': 'var(--light-green-200)',
 
         red: 'var(--red)',
 

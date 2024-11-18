@@ -1,7 +1,8 @@
 
 import './App.css'
+import { Carteira } from './sections/carteira'
 import { Header } from './sections/header'
-import { Receita } from './sections/receita'
+import { VisaoGeral } from './sections/visao-geral'
 
 function App() {
 
@@ -10,8 +11,11 @@ function App() {
 
     <div className='w-full'>
       <Header />
-      <div className='px-[2%]'>
-        <Receita />
+      <div className='px-[3%]'>
+
+        <VisaoGeral />
+        <Carteira />
+
       </div>
 
     </div>

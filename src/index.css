@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --text-color-gray: #797979;
+    --text-color-gray: #3E3E3E;
 
     --red: #F55A4D;
   
@@ -16,7 +16,7 @@
   
     --light-green-50: #F4F9EC;
   
-    --light-green-400: #A5CD69;
+    --light-green-200: #CBE2A9;
 
     --dark-blue: #002838
   
@@ -35,7 +35,7 @@
     @apply text-black text-xl font-semibold
   }
   .text {
-    @apply text-base text-text-primary 
+    @apply text-text-primary font-medium text-base
   }
 
 }  
