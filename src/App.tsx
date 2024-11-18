@@ -1,12 +1,20 @@
-import TbReceita from './components/tables/tb-receita'
+
 import './App.css'
+import { Header } from './sections/header'
+import { Receita } from './sections/receita'
 
 function App() {
 
 
   return (
 
-    <TbReceita />
+    <div className='w-full'>
+      <Header />
+      <div className='px-[2%]'>
+        <Receita />
+      </div>
+
+    </div>
   
   )
 }
