@@ -84,6 +84,30 @@ export const dataset = [
       month: 'Dec',
     },
   ];
+
+  export const carteiraData = [
+    {
+      label: 'Liquidados',
+      value: 355072.06,
+      qtd: 576,
+    },
+    {
+      label: 'A Vencer',
+      value: 1132661.13,
+      qtd: 2190,
+    },
+    {
+      label: 'Vencidos',
+      value: 96157.56,
+      qtd: 171,
+    },
+    {
+      label: 'Cancelados',
+      value: 89716.54,
+      qtd: 157,
+    },
+ 
+];
   
   export function valueFormatter(value: number | null) {
     return `${value}mm`;
