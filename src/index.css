@@ -37,6 +37,9 @@
   .text {
     @apply text-text-primary font-medium text-base
   }
+  .label {
+    @apply text-primary-green text-lg font-medium 
+  }
 
 }  
 

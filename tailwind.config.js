@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        '3xl': '0 2px 12px -4px rgba(0, 0, 0, 0.25)',
+      },
       colors:{
         'primary-green': 'var(--primary-green)',
         

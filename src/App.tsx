@@ -2,6 +2,7 @@
 import './App.css'
 import { Carteira } from './sections/carteira'
 import { Header } from './sections/header'
+import { Receita } from './sections/receita'
 import { VisaoGeral } from './sections/visao-geral'
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
 
     <div className='w-full'>
       <Header />
-      <div className='px-[3%]'>
-
+      <div className='flex flex-col px-[3%] gap-6'>
+        <Receita />
         <VisaoGeral />
         <Carteira />
 
