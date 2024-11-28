@@ -12,8 +12,14 @@ export default function SimpleBarChart() {
       
         { data: uData, id: 'uvId' },
       ]}
-      xAxis={[{ data: xLabels, scaleType: 'band' }]}
-      margin={{ right: 10, left: 40, top: 10, bottom: 24
+      xAxis={[
+        { 
+        data: xLabels, 
+        scaleType: 'band',
+        
+        }]}
+        
+        margin={{ right: 10, left: 40, top: 10, bottom: 24
        }}
       colors={['#8FC043']}
       
