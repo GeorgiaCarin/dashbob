@@ -15,10 +15,11 @@ type props = {
 export const TableReceita = ({data}:props) => {
   return (
     <div>
-      <Table borderAxis={"x"} sx={{ 
+      <Table borderAxis={"none"} sx={{ 
         '& tr > *:last-child': { textAlign: 'left' },
         '& tr > *:first-child': { textAlign: 'left' },
         '& tr > *:not(:first-child):not(:last-child)': { textAlign: 'center' },
+        
         
          }} >
         <thead>
@@ -32,8 +33,12 @@ export const TableReceita = ({data}:props) => {
           {data.map((item) => (
             <tr key={item.name}>
               <td>{item.name}</td>
-              <td>{item.trn} <TrendingUp color='success' /></td>
-              <td>R$ {item.faturamento} <TrendingUp color='success' /></td>
+              <td>
+                <TrendingUp color='success' /> {item.trn} 
+              </td>
+              <td>
+                <TrendingUp color='success' /> R$ {item.faturamento} 
+              </td>
             
             </tr>
           ))}
