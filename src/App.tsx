@@ -5,6 +5,7 @@ import Footer from './sections/footer'
 import { Header } from './sections/header'
 import { Receita } from './sections/receita'
 import { RedeAtiva } from './sections/rede-ativa'
+import RedeInativa from './sections/rede-inativa'
 import { VisaoGeral } from './sections/visao-geral'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <RedeAtiva />
         <VisaoGeral />
         <Carteira />
+        <RedeInativa />
 
       </div>
       <Footer />
