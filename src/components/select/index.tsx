@@ -15,9 +15,7 @@ export const SelectValue = ({title,options}:props) => {
             indicator={<KeyboardArrowDown />}
             variant="soft"
             size="md"
-            sx={{
-                minWidth: 120
-            }}
+          
         >
             {options.map((item) => (
                     <div className="min-w-24">

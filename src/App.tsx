@@ -1,6 +1,7 @@
 
 import './App.css'
 import { Carteira } from './sections/carteira'
+import Footer from './sections/footer'
 import { Header } from './sections/header'
 import { Receita } from './sections/receita'
 import { RedeAtiva } from './sections/rede-ativa'
@@ -20,6 +21,7 @@ function App() {
         <Carteira />
 
       </div>
+      <Footer />
 
     </div>
   
