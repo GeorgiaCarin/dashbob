@@ -1,39 +1,64 @@
 
-import { LineChart } from '@mui/x-charts/LineChart';
+import { LineChart, markElementClasses } from '@mui/x-charts/LineChart';
+import { xLabels } from '../../assets/data/data-receita';
 
-const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
-const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
-const qData = [1398, 2400, 3908, 9800, 3800, 4800, 4300];
-const xLabels = [
-  'Page A',
-  'Page B',
-  'Page C',
-  'Page D',
-  'Page E',
-  'Page F',
-  'Page G',
-];
 
-export const SimpleLineChart = () => {
+type inativos = {
+    name: string
+    pontos: number[]
+}
+
+type props = {
+    data: inativos[]
+}
+export const SimpleLineChart = ({data}: props) => {
     const color = ['#13287E','#8FC043', '#002838']
     return (
-        <LineChart
-        height={300}
-        series={[
-            { data: pData, label: 'pv' },
-            { data: uData, label: 'uv' },
-            { data: qData, label: 'qv' },
-        ]}
-        xAxis={[{ scaleType: 'point', data: xLabels }]}
-        colors={color}
-        {...lineParams}
-        margin={{ right: 10, left: 40, top: 10, bottom: 24}}
-        />
+        <div className='bg-white shadow-lg p-2'>
+            <div className='flex justify-around'>
+                {data.map((item) => (
+                <div className='text-center ' >
+                    <p>{item.name}</p>
+                    <p className='text-blue'>{item.pontos[item.pontos.length - 1]}</p>
+                </div>
+                ))}
+          
+            </div>
+            <LineChart
+            height={250}
+            series={[
+            
+                { curve: "linear", data: data[0].pontos, label: `${data[0].name}` },
+                { curve: "linear", data: data[1].pontos, label: `${data[1].name}` },
+                { curve: "linear", data: data[2].pontos, label: `${data[2].name}` },
+            ]}
+            xAxis={[{ scaleType: 'point', data: xLabels }]}
+            colors={color}
+            sx={{
+                [`.${markElementClasses.root}:not(.${markElementClasses.highlighted})`]: {
+                    stroke: '1',
+                    scale: '0.6'
+                },
+                
+            }}
+            margin={{ right: 10, left: 40, top: 50, bottom: 24}}
+            slotProps={{
+                legend: {
+                    direction: 'row',
+                    itemMarkWidth: 20,
+                    itemMarkHeight: 16,
+                    markGap: 2,
+                    itemGap: 10,
+                    hidden: true
+
+                }
+            }}
+            />
+        </div>
     );
 }
-const lineParams = {
+// const lineParams = {
 
-
-    slotProps: { legend: { hidden: true } },
+//     slotProps: { legend: { hidden: true } },
   
-  };
+//   };
