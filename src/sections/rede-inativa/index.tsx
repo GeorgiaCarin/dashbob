@@ -26,7 +26,7 @@ export default function RedeInativa() {
     return (
         <div className='flex flex-col gap-4 my-4'>
             <div>
-                <div className=" bg-white shadow-[0px_4px_12px_-8px_rgba(0,_0,_0,_0.25)] p-2 rounded-xl ">
+                <div className="flex flex-col gap-2 bg-white shadow-[0px_4px_12px_-8px_rgba(0,_0,_0,_0.25)] p-2 rounded-xl ">
                     <div className="title text-center">Rede inativa</div>
                     <div className="flex gap-4 justify-between">
                         <SelectValue title='indice' options={dataIndice} />

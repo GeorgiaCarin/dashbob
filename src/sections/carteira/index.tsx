@@ -4,7 +4,7 @@ import {carteiraData as data} from "../../assets/data/data-example"
 
 export const Carteira = () => {
     return (
-        <div>
+        <div className="shadow-md py-3 ">
             <h1 className="title text-dark-blue text-center">Carteira</h1>
             <CustomPieChart data={data} />
             <TableCarteira data={data} />

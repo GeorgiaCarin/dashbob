@@ -1,6 +1,7 @@
 
 import Table from '@mui/joy/Table';
 import TrendingUp from '@mui/icons-material/TrendingUp';
+import { formatCurrency } from '../../utils/format-currency';
 
 type dataset = {
   name: string,
@@ -24,8 +25,8 @@ export const TableReceita = ({data}:props) => {
          }} >
         <thead>
           <tr>
-            <th style={{ width: '30%' }}>Outubro</th>
-            <th style={{ width: '30%' }}>Trn</th>
+            <th style={{ width: '28%' }}>Outubro</th>
+            <th style={{ width: '28%' }}>Trn</th>
             <th>Faturamento</th>
           </tr>
         </thead>
@@ -37,7 +38,7 @@ export const TableReceita = ({data}:props) => {
                 <TrendingUp color='success' /> {item.trn} 
               </td>
               <td>
-                <TrendingUp color='success' /> R$ {item.faturamento} 
+                <TrendingUp color='success' /> {formatCurrency(item.faturamento)} 
               </td>
             
             </tr>

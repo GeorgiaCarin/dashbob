@@ -14,7 +14,7 @@ type props = {
 export const SimpleLineChart = ({data}: props) => {
     const color = ['#13287E','#8FC043', '#002838']
     return (
-        <div className='bg-white shadow-lg p-2'>
+        <div className='bg-white shadow-sm p-2 rounded-sm'>
             <div className='flex justify-around'>
                 {data.map((item) => (
                 <div className='text-center ' >
@@ -32,7 +32,7 @@ export const SimpleLineChart = ({data}: props) => {
                 { curve: "linear", data: data[1].pontos, label: `${data[1].name}` },
                 { curve: "linear", data: data[2].pontos, label: `${data[2].name}` },
             ]}
-            xAxis={[{ scaleType: 'point', data: xLabels }]}
+            xAxis={[{ scaleType: 'point', data: xLabels}]}
             colors={color}
             sx={{
                 [`.${markElementClasses.root}:not(.${markElementClasses.highlighted})`]: {

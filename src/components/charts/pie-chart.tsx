@@ -1,6 +1,7 @@
 import { Box } from '@mui/joy';
 import '../../index.css'
 import { PieChart } from '@mui/x-charts/PieChart';
+import { formatCurrency } from '../../utils/format-currency';
 
 type dataset = {
   label: string,
@@ -26,7 +27,9 @@ export const CustomPieChart = ({data}:props) => {
 
 
               <PieChart
-                series={[
+                series={
+
+                  [
                     {
                     data: data,
                     innerRadius: 70,
@@ -36,6 +39,8 @@ export const CustomPieChart = ({data}:props) => {
                     startAngle: -150,
                     endAngle: 225,
                     highlightScope: { fade: 'global', highlight: 'item' },
+                    valueFormatter: (v) => (v.value === null ? '' : formatCurrency(v.value)) 
+              
               
  
                   }
