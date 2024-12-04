@@ -44,7 +44,7 @@ const data: dataProps[] = [
 
 export const VisaoGeral = () => {
     return (
-        <div className="bg-light-green-50 rounded-lg text-center p-4" >
+        <div className="bg-light-green-50 rounded-lg text-center p-4 shadow-md" >
             <h1 className="title text-secondary-green">Visão Geral</h1>
             <div className=" flex flex-col gap-2">
                 {data.map((item) => (

@@ -1,5 +1,5 @@
 import { Table } from '@mui/joy'
-import React from 'react'
+
 
 type inativos = {
     name: string
@@ -10,7 +10,7 @@ type props = {
     data: inativos[]
 }
 
-export default function TableRedeInativa({data}:props) {
+export default function TableSimples({data}:props) {
   return (
     <div className='bg-white shadow-md rounded-md'>
         <Table borderAxis={"none"} size='lg' sx={{ 

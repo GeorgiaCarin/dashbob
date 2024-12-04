@@ -1,33 +1,32 @@
-
-import {SimpleLineChart} from '../../components/charts/line-chart'
+import React from 'react'
 import { SelectValue } from '../../components/select'
-
-import { uData, pData, qData } from '../../assets/data/data-example'
+import { SimpleLineChart } from '../../components/charts/line-chart'
 import TableSimples from '../../components/tables/tb-simples'
+import { pData, qData, uData } from '../../assets/data/data-example'
 const data = [
     {
-        name: 'Inoperantes',
+        name: 'Cadastrados',
         pontos: pData,
 
     },
     {
-        name: 'Distratos',
+        name: 'Liberados',
         pontos: uData
 
     },
     {
-        name: 'Em cobrança',
+        name: 'Instalados',
         pontos: qData
 
     },
 ]
-export default function RedeInativa() {
+export default function Expansao() {
     const dataIndice = ['Subestabelecido','dfdfhdfhsf']
     return (
         <div className='flex flex-col gap-4 my-4'>
 
             <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl ">
-                <div className="title text-center">Rede inativa</div>
+                <div className="title text-center">Expansão</div>
                 <div className="flex gap-4 justify-between">
                     <SelectValue title='indice' options={dataIndice} />
                     <SelectValue title='Mês' options={dataIndice} />
