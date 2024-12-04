@@ -8,7 +8,7 @@ const dataIndice = ['Subestabelecido','dfdfhdfhsf']
 export const Receita = () => {
     return (
         <div className="w-full p-2 flex flex-col gap-4 bg-white shadow-[0px_2px_16px_-8px_rgba(0,_0,_0,_0.25)] rounded-lg">
-            <div className=" bg-white shadow-sm p-2 rounded-xl ">
+            <div className="flex flex-col gap-2 bg-white shadow-sm p-2 rounded-xl ">
                 <div className="title text-center">receita</div>
                 <div className="flex gap-4 justify-between">
                     <SelectValue title='indice' options={dataIndice} />
@@ -16,7 +16,7 @@ export const Receita = () => {
                     <SelectValue title='Ano' options={dataIndice} />
                 </div>
             </div>
-            <div className=" bg-white p-2 shadow-md rounded-xl">
+            <div className=" bg-white p-2 shadow-sm rounded-xl">
                 <div className="flex justify-between">
                     <div>
                         <div className="">{data[0].name}</div>

@@ -25,16 +25,16 @@ export default function RedeInativa() {
     const dataIndice = ['Subestabelecido','dfdfhdfhsf']
     return (
         <div className='flex flex-col gap-4 my-4'>
-            <div>
-                <div className="flex flex-col gap-2 bg-white shadow-[0px_4px_12px_-8px_rgba(0,_0,_0,_0.25)] p-2 rounded-xl ">
-                    <div className="title text-center">Rede inativa</div>
-                    <div className="flex gap-4 justify-between">
-                        <SelectValue title='indice' options={dataIndice} />
-                        <SelectValue title='Mês' options={dataIndice} />
-                        <SelectValue title='Ano' options={dataIndice} />
-                    </div>
+
+            <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl ">
+                <div className="title text-center">Rede inativa</div>
+                <div className="flex gap-4 justify-between">
+                    <SelectValue title='indice' options={dataIndice} />
+                    <SelectValue title='Mês' options={dataIndice} />
+                    <SelectValue title='Ano' options={dataIndice} />
                 </div>
             </div>
+
             <SimpleLineChart data={data} />
             <TableRedeInativa data={data} />
 

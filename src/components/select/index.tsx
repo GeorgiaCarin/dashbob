@@ -19,6 +19,7 @@ export const SelectValue = ({title,options}:props) => {
             sx={{
                 borderRadius: 40,
                 minWidth: 100,
+                maxWidth:100,
                 color: '#8FC043',
                 backgroundColor: '#F4F9EC',
                 fontWeight: 'bold'

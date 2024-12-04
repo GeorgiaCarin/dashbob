@@ -125,3 +125,37 @@ export const dataset = [
 export const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490, 2400, 1398, 9800, 3908, 4800];
 export const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300, 2400, 1398, 9800, 3908, 4800];
 export const qData = [1398, 2400, 3908, 9800, 3800, 4800, 4300, 1398, 2400, 3908, 9800, 3800];
+
+export const dataRedeAtiva = [
+  {
+    faixa: "Até 100",
+    pontos: 123,
+    trn: 131.76,
+    trnMedia: 23,
+  },
+  {
+    faixa: "101 a 750",
+    pontos: 123,
+    trn: 131.76,
+    trnMedia: 23,
+  },
+  {
+    faixa: "751 a 3000",
+    pontos: 123,
+    trn: 131.76,
+    trnMedia: 23,
+  },
+  {
+    faixa: "3001 a 5000",
+    pontos: 123,
+    trn: 131.76,
+    trnMedia: 23,
+  },
+  {
+    faixa: "Acima de 5000",
+    pontos: 123,
+    trn: 131.76,
+    trnMedia: 23,
+  },
+
+]
