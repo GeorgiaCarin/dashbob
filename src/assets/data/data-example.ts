@@ -159,3 +159,19 @@ export const dataRedeAtiva = [
   },
 
 ]
+
+export const mes = [
+  'Jan',
+  'Fev',
+  'Mar',
+  'Abr',
+  'Mai',
+  'Jun',
+  'Jul',
+  'Ago',
+  'Set',
+  'Out',
+  'Nov',
+  'Dez',
+];
+export const ano = ['2024', '2023', '2022']

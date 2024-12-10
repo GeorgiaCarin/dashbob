@@ -3,7 +3,8 @@ import {SimpleLineChart} from '../../components/charts/line-chart'
 import { SelectValue } from '../../components/select'
 
 import { uData, pData, qData } from '../../assets/data/data-example'
-import TableSimples from '../../components/tables/tb-simples'
+
+import { mes, ano } from '../../assets/data/data-example'
 const data = [
     {
         name: 'Inoperantes',
@@ -22,21 +23,20 @@ const data = [
     },
 ]
 export default function RedeInativa() {
-    const dataIndice = ['Subestabelecido','dfdfhdfhsf']
+
     return (
         <div className='flex flex-col gap-4 my-4'>
 
             <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl ">
-                <div className="title text-center">Rede inativa</div>
                 <div className="flex gap-4 justify-between">
-                    <SelectValue title='indice' options={dataIndice} />
-                    <SelectValue title='Mês' options={dataIndice} />
-                    <SelectValue title='Ano' options={dataIndice} />
+                    <div className="title text-center">Rede inativa</div>
+                    <SelectValue title='Mês' options={mes} />
+                    <SelectValue title='Ano' options={ano} />
                 </div>
             </div>
 
             <SimpleLineChart data={data} />
-            <TableSimples data={data} />
+  
 
 
         </div>

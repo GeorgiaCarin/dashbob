@@ -21,8 +21,8 @@ function App() {
         <RedeAtiva />
         <Expansao />
         <VisaoGeral />
-        <Carteira />
         <RedeInativa />
+        <Carteira />
 
       </div>
       <Footer />

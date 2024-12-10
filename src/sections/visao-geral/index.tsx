@@ -48,7 +48,9 @@ export const VisaoGeral = () => {
             <h1 className="title text-secondary-green">Visão Geral</h1>
             <div className=" flex flex-col gap-2">
                 {data.map((item) => (
-                    <Line title={item.title} value={item.value} style={item.style} />
+                    <div key={item.title}>
+                        <Line title={item.title} value={item.value} style={item.style} />
+                    </div>
                 ))}
                 
             </div>

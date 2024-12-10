@@ -1,6 +1,6 @@
 
 import { LineChart, markElementClasses } from '@mui/x-charts/LineChart';
-import { xLabels } from '../../assets/data/data-receita';
+import { mes } from '../../assets/data/data-receita';
 
 
 type inativos = {
@@ -17,7 +17,7 @@ export const SimpleLineChart = ({data}: props) => {
         <div className='bg-white shadow-sm p-2 rounded-sm'>
             <div className='flex justify-around'>
                 {data.map((item) => (
-                <div className='text-center ' >
+                <div key={item.name} className='text-center ' >
                     <p>{item.name}</p>
                     <p className='text-blue'>{item.pontos[item.pontos.length - 1]}</p>
                 </div>
@@ -32,7 +32,7 @@ export const SimpleLineChart = ({data}: props) => {
                 { curve: "linear", data: data[1].pontos, label: `${data[1].name}` },
                 { curve: "linear", data: data[2].pontos, label: `${data[2].name}` },
             ]}
-            xAxis={[{ scaleType: 'point', data: xLabels}]}
+            xAxis={[{ scaleType: 'point', data: mes}]}
             colors={color}
             sx={{
                 [`.${markElementClasses.root}:not(.${markElementClasses.highlighted})`]: {

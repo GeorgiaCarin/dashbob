@@ -1,9 +1,11 @@
 
 import { BarChart } from '@mui/x-charts/BarChart';
-import { uData, xLabels } from '../../assets/data/data-receita';
+import { uData, mes } from '../../assets/data/data-receita';
+
 
 
 export default function SimpleBarChart() {
+
   return (
     <BarChart
     
@@ -14,7 +16,7 @@ export default function SimpleBarChart() {
       ]}
       xAxis={[
         { 
-        data: xLabels, 
+        data: mes, 
         scaleType: 'band',
         
         }]}

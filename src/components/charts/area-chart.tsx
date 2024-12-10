@@ -1,6 +1,6 @@
 
 import { LineChart, lineElementClasses, areaElementClasses } from '@mui/x-charts/LineChart';
-import { uData, xLabels } from '../../assets/data/data-receita';
+import { uData, mes } from '../../assets/data/data-receita';
 
 export default function AreaChart() {
   return (
@@ -10,7 +10,7 @@ export default function AreaChart() {
 
         height={300}
         series={[{ data: uData, area: true, showMark: false }]}
-        xAxis={[{ scaleType: 'point', data: xLabels }]}
+        xAxis={[{ scaleType: 'point', data: mes }]}
         yAxis={[{scaleType: 'linear'}]}
         sx={{
             [`& .${lineElementClasses.root}`]: {

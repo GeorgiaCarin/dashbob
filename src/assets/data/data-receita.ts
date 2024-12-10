@@ -1,5 +1,5 @@
 export const uData = [3000, 3000, 2000, 2780, 1890, 2390, 3490, 3000, 2000, 2780, 1890, 2390];
-export const xLabels = [
+export const mes = [
   'Jan',
   'Fev',
   'Mar',
@@ -13,7 +13,7 @@ export const xLabels = [
   'Nov',
   'Dez',
 ];
-
+export const ano = ['2024', '2023', '2022']
 export const indices = [
   {
     name: 'Substabelecido',
