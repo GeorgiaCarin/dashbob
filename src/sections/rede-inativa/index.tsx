@@ -3,22 +3,25 @@ import {SimpleLineChart} from '../../components/charts/line-chart'
 import { SelectValue } from '../../components/select'
 
 import { uData, pData, qData } from '../../assets/data/data-example'
-
+// const color = ['#13287E','#8FC043', '#F55A4D']
 import { mes, ano } from '../../assets/data/data-example'
 const data = [
     {
         name: 'Inoperantes',
         pontos: pData,
+        color: 0,
 
     },
     {
         name: 'Distratos',
-        pontos: uData
+        pontos: uData,
+        color: 1,
 
     },
     {
         name: 'Em cobrança',
-        pontos: qData
+        pontos: qData,
+        color: 2,
 
     },
 ]

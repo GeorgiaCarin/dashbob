@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { SelectValue } from '../../components/select'
 import { SimpleLineChart } from '../../components/charts/line-chart'
 import TableSimples from '../../components/tables/tb-simples'
@@ -8,16 +8,17 @@ const data = [
     {
         name: 'Cadastrados',
         pontos: pData,
-
+        color: 0,
     },
     {
         name: 'Liberados',
-        pontos: uData
-
+        pontos: uData,
+        color: 1,
     },
     {
         name: 'Instalados',
-        pontos: qData
+        pontos: qData,
+        color: 2,
 
     },
 ]

@@ -1,31 +1,35 @@
 
-import { LineChart, markElementClasses } from '@mui/x-charts/LineChart';
+import { LineChart, markElementClasses, lineElementClasses } from '@mui/x-charts/LineChart';
 import { mes } from '../../assets/data/data-receita';
 
 
 type inativos = {
     name: string
     pontos: number[]
+    color: number
 }
 
 type props = {
     data: inativos[]
 }
 export const SimpleLineChart = ({data}: props) => {
-    const color = ['#13287E','#8FC043', '#002838']
+
+    const color = ['#13287E','#8FC043','#c41515']
+
     return (
         <div className='bg-white shadow-sm p-2 rounded-sm'>
             <div className='flex justify-around'>
                 {data.map((item) => (
                 <div key={item.name} className='text-center ' >
-                    <p>{item.name}</p>
-                    <p className='text-blue'>{item.pontos[item.pontos.length - 1]}</p>
+                    <p className='font-medium'>{item.name}</p>
+                    <p className={` text-[${color[item.color]}] font-semibold text-xl`}>{item.pontos[item.pontos.length - 1]}</p>
                 </div>
                 ))}
           
             </div>
             <LineChart
             height={250}
+
             series={[
             
                 { curve: "linear", data: data[0].pontos, label: `${data[0].name}` },
@@ -36,8 +40,13 @@ export const SimpleLineChart = ({data}: props) => {
             colors={color}
             sx={{
                 [`.${markElementClasses.root}:not(.${markElementClasses.highlighted})`]: {
-                    stroke: '1',
-                    scale: '0.6'
+                    strokeWidth: '3px',
+                    scale: '0.7',
+                    
+                },
+                [`.${lineElementClasses.root}`]: {
+                    strokeWidth: '4'
+                 
                 },
                 
             }}
@@ -45,11 +54,12 @@ export const SimpleLineChart = ({data}: props) => {
             slotProps={{
                 legend: {
                     direction: 'row',
-                    itemMarkWidth: 20,
+                    itemMarkWidth: 30,
                     itemMarkHeight: 16,
                     markGap: 2,
                     itemGap: 10,
-                    hidden: true
+                    hidden: true,
+
 
                 }
             }}
