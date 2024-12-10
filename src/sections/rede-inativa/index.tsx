@@ -5,6 +5,8 @@ import { SelectValue } from '../../components/select'
 import { uData, pData, qData } from '../../assets/data/data-example'
 // const color = ['#13287E','#8FC043', '#F55A4D']
 import { mes, ano } from '../../assets/data/data-example'
+import { redeInativaData } from '../../assets/data/data-example'
+import { TableRedeInativa } from '../../components/tables/tb-rede-inativa'
 const data = [
     {
         name: 'Inoperantes',
@@ -39,6 +41,7 @@ export default function RedeInativa() {
             </div>
 
             <SimpleLineChart data={data} />
+            <TableRedeInativa data={redeInativaData}  />
   
 
 
