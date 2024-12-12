@@ -51,7 +51,7 @@ export const redeInativaData = [
   },
   {
     name: 'outros',
-    month: 89716.54,
+    month: 8,
     total: 157,
   },
   // {
@@ -63,17 +63,12 @@ export const redeInativaData = [
  
 ];
   
-export function valueFormatter(value: number | null) {
-  return `${value}mm`;
-}
+
   
-  export const dataline = [
-    { x: 1, y: 2 },
-    { x: 2, y: 5.5 },
-    { x: 3, y: 2 },
-    { x: 5, y: 8.5 },
-    { x: 8, y: 1.5 },
-    { x: 10, y: 5 },
+  export const inadimplencia = [
+    { name: "Saldo Devedor Total", value: 2 },
+    { name: "Saldo Devedor Negociado", value: 5 },
+    { name: "perda", value: 2 },
   ];
 
 export const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490, 2400, 1398, 9800, 3908, 4800];

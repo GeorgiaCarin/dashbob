@@ -4,6 +4,7 @@ import { Carteira } from './sections/carteira'
 import Expansao from './sections/expansao'
 import Footer from './sections/footer'
 import { Header } from './sections/header'
+import Inadimplente from './sections/inadimplencia'
 import { Receita } from './sections/receita'
 import { RedeAtiva } from './sections/rede-ativa'
 import RedeInativa from './sections/rede-inativa'
@@ -22,6 +23,7 @@ function App() {
         <Expansao />
         <VisaoGeral />
         <RedeInativa />
+        <Inadimplente />
         <Carteira />
 
       </div>

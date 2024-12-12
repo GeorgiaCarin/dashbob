@@ -26,6 +26,14 @@ export default {
 
         blue: 'var(--blue)',
 
+      },
+      screens: {
+        'mobile' : '620px',
+        'tablet' : '640px',
+        'laptop': '1024px',
+        'desktop': '1280px',
+        '2xdesktop': '1920px',
+
       }
     },
   },

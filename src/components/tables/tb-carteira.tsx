@@ -18,7 +18,7 @@ export const TableCarteira = ({data}:props) => {
   }
 
   return (
-    <div>
+    <div className='shadow-md pb-4 rounded-md'>
       <Table borderAxis={"none"} sx={{
         backgroundColor: "#fff",
         '& tr:nth-of-type(odd)': {

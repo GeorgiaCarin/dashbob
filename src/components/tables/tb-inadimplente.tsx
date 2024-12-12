@@ -1,16 +1,16 @@
 import { Table } from '@mui/joy'
 
 
-type inativos = {
+type data = {
     name: string
-    pontos: number[]
+    value: number
 }
 
 type props = {
-    data: inativos[]
+    data: data[]
 }
 
-export default function TableSimples({data}:props) {
+export default function TableInadimplente({data}:props) {
   return (
     <div className='bg-white shadow-md rounded-md'>
         <Table borderAxis={"none"} size='lg' sx={{ 
@@ -20,8 +20,8 @@ export default function TableSimples({data}:props) {
         }}>
         <thead>
             <tr>
-                <th style={{ }}>Mês Atual</th>
-                <th>Pontos</th>
+                <th style={{ }}>Outubro</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@ export default function TableSimples({data}:props) {
                         {item.name}
                     </td>
                     <td>
-                        {item.pontos[item.pontos.length - 1]} 
+                        {item.value} 
                     </td>
                 
                 </tr>

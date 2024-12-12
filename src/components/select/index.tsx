@@ -20,7 +20,9 @@ export const SelectValue = ({ title, options, onChange }: Props) => {
     };
 
     return (
-        <FormControl variant="outlined" size="small" sx={{ minWidth: 100 }}>
+        <FormControl variant="outlined" size="small" sx={{ minWidth: 100, inputLabelRoot: {
+            color: 'red',
+          } }}>
             <InputLabel>{title}</InputLabel>
             <Select
                 value={value}
@@ -34,6 +36,7 @@ export const SelectValue = ({ title, options, onChange }: Props) => {
                     color: "#8FC043",
                     fontWeight: "bold",
                     borderColor: "#8FC043"
+                    
                 }}
             >
                 {options.map((option) => (

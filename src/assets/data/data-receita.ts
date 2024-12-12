@@ -36,11 +36,6 @@ export const indices = [
     trn: 157,
   },
   {
-    name: 'Conta corrente',
-    faturamento: 355072.06,
-    trn: 576,
-  },
-  {
     name: 'Saque pix',
     faturamento: 1132661.13,
     trn: 2190,

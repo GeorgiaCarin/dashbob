@@ -19,12 +19,19 @@ export const SimpleLineChart = ({data}: props) => {
     return (
         <div className='bg-white shadow-sm p-2 rounded-sm'>
             <div className='flex justify-around'>
-                {data.map((item) => (
-                <div key={item.name} className='text-center ' >
-                    <p className='font-medium'>{item.name}</p>
-                    <p className={` text-[${color[item.color]}] font-semibold text-xl`}>{item.pontos[item.pontos.length - 1]}</p>
+                <div className='text-center ' >
+                    <p className='font-medium'>{data[0].name}</p>
+                    <p className={` text-dark-blue font-semibold text-xl`}>{data[0].pontos[data[0].pontos.length - 1]}</p>
                 </div>
-                ))}
+                <div className='text-center ' >
+                    <p className='font-medium'>{data[0].name}</p>
+                    <p className={` text-primary-green font-semibold text-xl`}>{data[0].pontos[data[0].pontos.length - 1]}</p>
+                </div>
+                <div className='text-center ' >
+                    <p className='font-medium'>{data[0].name}</p>
+                    <p className={` text-red font-semibold text-xl`}>{data[0].pontos[data[0].pontos.length - 1]}</p>
+                </div>
+
           
             </div>
             <LineChart
