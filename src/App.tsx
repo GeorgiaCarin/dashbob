@@ -17,7 +17,7 @@ function App() {
 
     <div className='w-full'>
       <Header />
-      <div className='flex flex-col px-[3%] gap-6'>
+      <div className='flex flex-col px-[3%] laptop:px-[10%] gap-6'>
         <Receita />
         <RedeAtiva />
         <Expansao />

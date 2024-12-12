@@ -24,12 +24,12 @@ export const SimpleLineChart = ({data}: props) => {
                     <p className={` text-dark-blue font-semibold text-xl`}>{data[0].pontos[data[0].pontos.length - 1]}</p>
                 </div>
                 <div className='text-center ' >
-                    <p className='font-medium'>{data[0].name}</p>
-                    <p className={` text-primary-green font-semibold text-xl`}>{data[0].pontos[data[0].pontos.length - 1]}</p>
+                    <p className='font-medium'>{data[1].name}</p>
+                    <p className={` text-primary-green font-semibold text-xl`}>{data[1].pontos[data[1].pontos.length - 1]}</p>
                 </div>
                 <div className='text-center ' >
-                    <p className='font-medium'>{data[0].name}</p>
-                    <p className={` text-red font-semibold text-xl`}>{data[0].pontos[data[0].pontos.length - 1]}</p>
+                    <p className='font-medium'>{data[2].name}</p>
+                    <p className={` text-red font-semibold text-xl`}>{data[2].pontos[data[2].pontos.length - 1]}</p>
                 </div>
 
           

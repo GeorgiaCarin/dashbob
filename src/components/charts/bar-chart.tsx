@@ -8,8 +8,12 @@ export default function SimpleBarChart() {
 
   return (
     <BarChart
-    
-      height={240}
+      sx={{
+        minHeight: "240px",
+        maxHeight: "300px"
+      }}
+      height={250}
+
       series={[
       
         { data: uData, id: 'uvId' },

@@ -30,13 +30,18 @@ export default function Expansao() {
             <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl ">
                 <div className="flex gap-4 justify-between">
                     <div className="title text-center">Expansão</div>
-                    <SelectValue title='Mês' options={mes} />
-                    <SelectValue title='Ano' options={ano} />
+                    <div className='flex gap-4 '>
+                        <SelectValue title='Mês' options={mes} />
+                        <SelectValue title='Ano' options={ano} />
+
+                    </div>
                 </div>
             </div>
-
+            <div>
             <SimpleLineChart data={data} />
             <TableSimples data={data} />
+
+            </div>
 
 
         </div>
