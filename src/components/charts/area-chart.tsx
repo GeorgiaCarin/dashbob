@@ -2,6 +2,19 @@
 import { LineChart, lineElementClasses, areaElementClasses } from '@mui/x-charts/LineChart';
 import { uData, mes } from '../../assets/data/data-receita';
 
+// const Root = styled('div')(({ theme }) => ({
+//   padding: theme.spacing(1),
+//   [theme.breakpoints.down('md')]: {
+//     backgroundColor: red[500],
+//   },
+//   [theme.breakpoints.up('md')]: {
+//     backgroundColor: blue[500],
+//   },
+//   [theme.breakpoints.up('lg')]: {
+//     backgroundColor: green[500],
+//   },
+// }));
+
 export default function AreaChart() {
   return (
     <div className='w-full'>
@@ -19,6 +32,7 @@ export default function AreaChart() {
             [`& .${areaElementClasses.root}`]: {
                 
             },
+            
            
         }}
         colors={['#8FC043']}

@@ -10,10 +10,17 @@ export default function SimpleBarChart() {
     <BarChart
       sx={{
         minHeight: "240px",
-        maxHeight: "300px"
+        maxHeight: "300px",
+   
       }}
       height={250}
-
+      slotProps={{
+        bar: {
+          style: {
+            borderRadius: '10px 10px 0 0', // Arredondar apenas o topo das barras
+          },
+        },
+      }}
       series={[
       
         { data: uData, id: 'uvId' },

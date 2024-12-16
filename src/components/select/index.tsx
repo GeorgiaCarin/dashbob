@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, MenuItem, FormControl, InputLabel, SelectChangeEvent } from "@mui/material";
+import { Select, MenuItem, FormControl, InputLabel, SelectChangeEvent,  } from "@mui/material";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 type Props = {
@@ -25,12 +25,12 @@ export const SelectValue = ({ title, options, onChange }: Props) => {
           } }}>
             <InputLabel>{title}</InputLabel>
             <Select
+                autoWidth
                 value={value}
                 onChange={handleChange}
                 label={title}
                 IconComponent={KeyboardArrowDown}
-                sx={{
-                    maxWidth: 100,
+                sx={{   
                     borderRadius: "20px",
                     backgroundColor: "#F4F9EC",
                     color: "#8FC043",

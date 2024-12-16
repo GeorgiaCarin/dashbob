@@ -17,9 +17,9 @@ export const TableRedeInativa = ({data}:props) => {
     <div>
       <Table borderAxis={"none"} sx={{ 
        
-        // '& tr > *:last-child': { textAlign: 'left' },
-        // '& tr > *:first-child': { textAlign: 'left' },
-        // '& tr > *:not(:first-child):not(:last-child)': { textAlign: 'center' },
+        '& tr > *:last-child': { textAlign: 'right' },
+        '& tr > *:first-child': { textAlign: 'left' },
+        '& tr > *:not(:first-child):not(:last-child)': { textAlign: 'center' },
         
         
          }} >

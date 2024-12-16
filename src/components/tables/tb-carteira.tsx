@@ -20,14 +20,15 @@ export const TableCarteira = ({data}:props) => {
   return (
     <div className='shadow-md pb-4 rounded-md'>
       <Table borderAxis={"none"} sx={{
+        maxWidth: 440,
         backgroundColor: "#fff",
-        '& tr:nth-of-type(odd)': {
+        '& tr:nth-of-type()': {
             backgroundColor: '#F4F9EC',
           },
       }}>
         <thead>
           <tr>
-            <th style={{ width: '30%' }}>Situação</th>
+            <th >Situação</th>
             <th style={{ width: '30%' }}>Qtde</th>
             <th>Valor</th>
           </tr>

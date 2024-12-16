@@ -1,7 +1,6 @@
 
 import { SelectValue } from '../../components/select'
 import { SimpleLineChart } from '../../components/charts/line-chart'
-import TableSimples from '../../components/tables/tb-simples'
 import { pData, qData, uData } from '../../assets/data/data-example'
 import {ano, mes} from "../../assets/data/data-example"
 const data = [
@@ -25,9 +24,9 @@ const data = [
 export default function Expansao() {
 
     return (
-        <div className='flex flex-col gap-4 my-4'>
+        <div className='flex flex-col gap-4 my-4 laptop:my-0 laptop:shadow-md laptop:rounded-lg'>
 
-            <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl ">
+            <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-2xl  ">
                 <div className="flex gap-4 justify-between">
                     <div className="title text-center">Expansão</div>
                     <div className='flex gap-4 '>
@@ -39,7 +38,7 @@ export default function Expansao() {
             </div>
             <div>
             <SimpleLineChart data={data} />
-            <TableSimples data={data} />
+            {/* <TableSimples data={data} /> */}
 
             </div>
 

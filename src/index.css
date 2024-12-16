@@ -29,13 +29,13 @@
     @apply rounded-2xl 
   }
   .title{
-    @apply text-dark-blue text-2xl capitalize font-extrabold
+    @apply text-dark-blue text-2xl laptop:text-3xl capitalize font-extrabold
   }
   .title-secondary{
     @apply text-black text-xl font-semibold
   }
   .text {
-    @apply text-text-primary font-medium text-base
+    @apply text-text-primary font-medium text-base laptop:text-lg
   }
   .label {
     @apply text-primary-green text-lg font-medium 
