@@ -13,7 +13,7 @@ type props = {
 
 export default function TableRedeAtiva({data}:props) {
   return (
-    <div className='bg-white '>
+    <div className='bg-white py-1 rounded-xl shadow-sm'>
         <Table borderAxis={"none"} size='lg' sx={{ 
             '& tr > *:last-child': { textAlign: 'right' },
             '& tr > *:first-child': { textAlign: 'left' },

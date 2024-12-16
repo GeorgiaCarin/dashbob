@@ -18,7 +18,7 @@ export const TableCarteira = ({data}:props) => {
   }
 
   return (
-    <div className='shadow-md pb-4 rounded-md'>
+    <div className=' pb-2'>
       <Table borderAxis={"none"} sx={{
         maxWidth: 440,
         backgroundColor: "#fff",

@@ -15,11 +15,12 @@ type props = {
 
 export const TableReceita = ({data}:props) => {
   return (
-    <div>
+    <div className='bg-white py-2 rounded-xl'>
       <Table borderAxis={"none"} sx={{ 
         '& tr > *:last-child': { textAlign: 'left' },
         '& tr > *:first-child': { textAlign: 'left' },
         '& tr > *:not(:first-child):not(:last-child)': { textAlign: 'center' },
+        borderRadius: '20px'
         
         
          }} >

@@ -32,7 +32,7 @@ export default function RedeInativa() {
     return (
         <div className='flex flex-col gap-4 my-4'>
 
-            <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl  ">
+            <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl shadow-sm ">
                 <div className="flex gap-4 justify-between items-center ">
                     <div className="title text-xl text-center ">Rede inativa</div>
                     <div className='flex gap-2 laptop:gap-4'>
@@ -41,8 +41,8 @@ export default function RedeInativa() {
                     </div>
                 </div>
             </div>
-            <div className='laptop:flex'>
-                <div className='laptop:w-3/4'>
+            <div className='laptop:flex flex flex-col gap-2'>
+                <div className='laptop:w-3/4 bg-white'>
                     <SimpleLineChart data={data} />
                 </div>
                 <div className='laptop:w-1/2'>

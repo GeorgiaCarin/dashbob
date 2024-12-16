@@ -14,7 +14,7 @@ type props = {
 
 export const TableRedeInativa = ({data}:props) => {
   return (
-    <div>
+    <div className='bg-white rounded-xl py-1 shadow-sm'>
       <Table borderAxis={"none"} sx={{ 
        
         '& tr > *:last-child': { textAlign: 'right' },

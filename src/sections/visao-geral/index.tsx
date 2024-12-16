@@ -59,7 +59,7 @@ export const VisaoGeral = () => {
     return (
         // <Root>
 
-            <div className="bg-light-green-50 rounded-lg text-center p-4 shadow-md laptop:h-full laptop:w-full" >
+            <div className="bg-light-green-50 rounded-lg text-center p-4 shadow-sm laptop:h-full laptop:w-full" >
                 <h1 className="title text-secondary-green">Visão Geral</h1>
                 <div className=" flex flex-col gap-2 tablet:gap-4">
                     {data.map((item) => (
