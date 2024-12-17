@@ -11,13 +11,13 @@ export default function SimpleBarChart() {
       sx={{
         minHeight: "240px",
         maxHeight: "300px",
-   
+        
       }}
       height={250}
       slotProps={{
         bar: {
           style: {
-            borderRadius: '10px 10px 0 0', // Arredondar apenas o topo das barras
+            borderRadius: '10px 10px 0 0',
           },
         },
       }}
@@ -35,6 +35,7 @@ export default function SimpleBarChart() {
         margin={{ right: 10, left: 40, top: 10, bottom: 24
        }}
       colors={['#8FC043']}
+    
       
     />
 

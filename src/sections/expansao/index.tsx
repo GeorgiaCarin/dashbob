@@ -24,7 +24,7 @@ const data = [
 export default function Expansao() {
 
     return (
-        <div className='flex flex-col gap-4 my-4 laptop:my-0 laptop:shadow-md laptop:rounded-lg'>
+        <div className='flex flex-col gap-4 my-4 laptop:my-0 laptop:rounded-lg'>
 
             <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-2xl  ">
                 <div className="flex gap-4 justify-between">

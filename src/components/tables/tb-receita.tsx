@@ -15,7 +15,7 @@ type props = {
 
 export const TableReceita = ({data}:props) => {
   return (
-    <div className='bg-white py-2 rounded-xl'>
+    <div className='bg-white py-2 rounded-xl border-b-2'>
       <Table borderAxis={"none"} sx={{ 
         '& tr > *:last-child': { textAlign: 'left' },
         '& tr > *:first-child': { textAlign: 'left' },

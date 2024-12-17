@@ -17,7 +17,7 @@ export const RedeAtiva = () => {
         </div>
       </div>
       <div className="flex flex-col gap-2 laptop:flex-row-reverse laptop:gap-4">
-        <div className="laptop:flex laptop:flex-col laptop:flex-1  bg-white rounded-xl py-2 shadow-sm">
+        <div className="laptop:flex laptop:flex-col laptop:flex-1 laptop:p-4 bg-white rounded-xl  shadow-sm">
           <div className="flex justify-between">
               <div>
                   <div className="font-medium text-lg">Pontos Ativos</div>
@@ -25,12 +25,15 @@ export const RedeAtiva = () => {
               </div>
               <div className="label flex justify-center text-center"><ExpandCircleDown /> 65%</div>
           </div>
-          <SimpleBarChart />
+          <div className="">
+            <SimpleBarChart />
+
+          </div>
 
         </div>
-        <div className="flex flex-col  laptop:flex-1 laptop:px-4 laptop:pb-4 gap-4">
+        <div className="flex flex-col laptop:flex-1  laptop:pb-4 gap-4 laptop:justify-between">
           <TableRedeAtiva data={dataRedeAtiva} />
-          <div className="laptop:px-32">
+          <div className="laptop:px-32 ">
             <RedeAtivaCard />
 
           </div>

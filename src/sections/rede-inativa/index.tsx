@@ -30,7 +30,7 @@ const data = [
 export default function RedeInativa() {
 
     return (
-        <div className='flex flex-col gap-4 my-4'>
+        <div className='flex flex-col gap-4 my-4 '>
 
             <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl shadow-sm ">
                 <div className="flex gap-4 justify-between items-center ">
@@ -41,12 +41,12 @@ export default function RedeInativa() {
                     </div>
                 </div>
             </div>
-            <div className='laptop:flex flex flex-col gap-2'>
-                <div className='laptop:w-3/4 bg-white'>
+            <div className='laptop:flex flex flex-col laptop:flex-row gap-2'>
+                <div className='laptop:w-1/2 bg-white'>
                     <SimpleLineChart data={data} />
                 </div>
-                <div className='laptop:w-1/2'>
-                    <TableRedeInativa data={redeInativaData}  />
+                <div className='laptop:w-1/2 h-[100%'>
+                    <TableRedeInativa data={redeInativaData} />
 
                 </div>
             </div>

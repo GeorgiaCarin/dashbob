@@ -13,11 +13,10 @@ type props = {
 
 export default function TableRedeAtiva({data}:props) {
   return (
-    <div className='bg-white py-1 rounded-xl shadow-sm'>
+    <div className='bg-white py-1 rounded-xl shadow-sm border-b-2'>
         <Table borderAxis={"none"} size='lg' sx={{ 
             '& tr > *:last-child': { textAlign: 'right' },
             '& tr > *:first-child': { textAlign: 'left' },
-
         }}>
         <thead>
             <tr className='text-md'>

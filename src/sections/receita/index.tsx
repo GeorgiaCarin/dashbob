@@ -31,7 +31,7 @@ export const Receita = () => {
                     <SelectValue title='Ano' options={ano} />
                 </div>
             </div>
-            <div className="flex flex-col gap-2 laptop:gap-4">
+            <div className="flex flex-col laptop:flex-row gap-2 laptop:gap-4">
                 <div className="laptop:flex laptop:flex-col laptop:flex-1 bg-white p-2 shadow-sm rounded-xl">
                     <div className="flex justify-between">
                         <div>

@@ -17,7 +17,7 @@ export const SimpleLineChart = ({data}: props) => {
     const color = ['#13287E','#8FC043','#c41515']
 
     return (
-        <div className='bg-white shadow-sm p-2 rounded-xl laptop:rounded-xl'>
+        <div className='bg-white shadow-sm p-4 rounded-xl laptop:rounded-xl'>
             <div className='flex justify-around'>
                 <div className='text-center ' >
                     <p className='font-medium'>{data[0].name}</p>

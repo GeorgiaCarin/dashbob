@@ -26,13 +26,18 @@ function App() {
           </div>
           <div className='laptop:flex laptop:w-1/3 '>
             <VisaoGeral />
-
+          </div>
+        </div>
+        <RedeInativa />
+        <div className='laptop:flex laptop:flex-row-reverse laptop:gap-4'>
+          <div className='laptop:w-2/6'>
+          <Inadimplente />
+          </div>
+          <div className='laptop:w-4/6'>
+            <Carteira />
           </div>
 
         </div>
-        <RedeInativa />
-        <Inadimplente />
-        <Carteira />
 
       </div>
       <Footer />
