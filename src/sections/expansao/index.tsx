@@ -26,7 +26,7 @@ export default function Expansao() {
     return (
         <div className='flex flex-col gap-4 my-4 laptop:my-0 laptop:rounded-lg'>
 
-            <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-2xl  ">
+            <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-2xl">
                 <div className="flex gap-4 justify-between">
                     <div className="title text-center">Expansão</div>
                     <div className='flex gap-4 '>
@@ -36,7 +36,7 @@ export default function Expansao() {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='border-b-2'>
             <SimpleLineChart data={data} />
             {/* <TableSimples data={data} /> */}
 

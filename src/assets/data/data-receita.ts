@@ -16,7 +16,7 @@ export const mes = [
 export const ano = ['2024', '2023', '2022']
 export const indices = [
   {
-    name: 'Substabelecido',
+    name: 'Subestabelecido',
     faturamento: 355072.06,
     trn: 576,
   },

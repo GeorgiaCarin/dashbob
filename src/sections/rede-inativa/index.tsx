@@ -34,7 +34,7 @@ export default function RedeInativa() {
 
             <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl shadow-sm ">
                 <div className="flex gap-4 justify-between items-center ">
-                    <div className="title text-xl text-center ">Rede inativa</div>
+                    <div className="title text-center ">Rede inativa</div>
                     <div className='flex gap-2 laptop:gap-4'>
                         <SelectValue title='Mês' options={mes} />
                         <SelectValue title='Ano' options={ano} />
@@ -42,10 +42,10 @@ export default function RedeInativa() {
                 </div>
             </div>
             <div className='laptop:flex flex flex-col laptop:flex-row gap-2'>
-                <div className='laptop:w-1/2 bg-white'>
+                <div className='laptop:w-1/2 bg-white rounded-xl border-b-2'>
                     <SimpleLineChart data={data} />
                 </div>
-                <div className='laptop:w-1/2 h-[100%'>
+                <div className='laptop:w-1/2 h-[100%] border-b-2'>
                     <TableRedeInativa data={redeInativaData} />
 
                 </div>

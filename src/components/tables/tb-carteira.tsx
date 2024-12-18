@@ -25,6 +25,11 @@ export const TableCarteira = ({data}:props) => {
         '& tr:nth-of-type()': {
             backgroundColor: '#F4F9EC',
           },
+          fontSize: {
+            xs: '12px',
+            sm:'14px',
+            md: '16px',
+          }
       }}>
         <thead>
           <tr>

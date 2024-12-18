@@ -16,7 +16,11 @@ export default function TableSimples({data}:props) {
         <Table borderAxis={"none"} size='lg' sx={{ 
             '& tr > *:last-child': { textAlign: 'right' },
             '& tr > *:first-child': { textAlign: 'left' },
-
+            fontSize: {
+                xs: '12px',
+                sm:'14px',
+                md: '16px',
+            }
         }}>
         <thead>
             <tr>

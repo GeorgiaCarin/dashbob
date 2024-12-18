@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, MenuItem, FormControl, InputLabel, SelectChangeEvent,  } from "@mui/material";
+import { Select, MenuItem, FormControl, InputLabel, SelectChangeEvent } from "@mui/material";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 type Props = {
@@ -23,7 +23,9 @@ export const SelectValue = ({ title, options, onChange }: Props) => {
         <FormControl variant="outlined" size="small" sx={{ minWidth: 100, inputLabelRoot: {
             color: 'red',
           } }}>
-            <InputLabel>{title}</InputLabel>
+            <InputLabel sx={{
+                color: "#8FC043"
+            }}>{title}</InputLabel>
             <Select
                 autoWidth
                 value={value}
@@ -35,7 +37,8 @@ export const SelectValue = ({ title, options, onChange }: Props) => {
                     backgroundColor: "#F4F9EC",
                     color: "#8FC043",
                     fontWeight: "bold",
-                    borderColor: "#8FC043"
+                    
+               
                     
                 }}
             >

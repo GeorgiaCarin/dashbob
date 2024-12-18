@@ -20,8 +20,7 @@ export const CustomPieChart = ({data}:props) => {
 
           <div  className=' flex w-full justify-center'>
             <Box  sx={{
-               
-               width: 270
+              width: 200
                
             }}>
 
@@ -32,8 +31,8 @@ export const CustomPieChart = ({data}:props) => {
                   [
                     {
                     data: data,
-                    innerRadius: 90,
-                    outerRadius: 120,
+                    innerRadius: 80,
+                    outerRadius: 100,
                     paddingAngle: 5,
                     cornerRadius: 5,
                     startAngle: -150,

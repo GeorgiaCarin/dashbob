@@ -7,7 +7,7 @@ export const Carteira = () => {
         <div className="shadow-md py-4 laptop:px-4 bg-white flex flex-col gap-4 rounded-xl">
             <h1 className="title text-4xl text-dark-blue text-center laptop:text-left laptop:p-2">Carteira</h1>
             <div className="flex flex-col laptop:flex-row items-center gap-4">
-                <div className="laptop:w-3/6">
+                <div className="">
                     <CustomPieChart data={data} />
 
                 </div>

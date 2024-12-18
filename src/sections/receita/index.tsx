@@ -15,7 +15,7 @@ export const Receita = () => {
     const currentYear = new Date().getFullYear()
     const currentMonth = mes.indexOf(selectedMonth)
     useEffect(() => {
-      
+        
         console.log("mouth", getLastDate(currentYear,currentMonth))
     
     }, [currentMonth,currentYear])
@@ -32,7 +32,7 @@ export const Receita = () => {
                 </div>
             </div>
             <div className="flex flex-col laptop:flex-row gap-2 laptop:gap-4">
-                <div className="laptop:flex laptop:flex-col laptop:flex-1 bg-white p-2 shadow-sm rounded-xl">
+                <div className="laptop:flex laptop:flex-col laptop:flex-1 bg-white p-2 shadow-sm rounded-xl border-b-2">
                     <div className="flex justify-between">
                         <div>
                             <div className="font-medium text-lg">{selectedIndice}</div>

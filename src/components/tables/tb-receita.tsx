@@ -20,7 +20,12 @@ export const TableReceita = ({data}:props) => {
         '& tr > *:last-child': { textAlign: 'left' },
         '& tr > *:first-child': { textAlign: 'left' },
         '& tr > *:not(:first-child):not(:last-child)': { textAlign: 'center' },
-        borderRadius: '20px'
+        borderRadius: '20px',
+        fontSize: {
+          xs: '12px',
+          sm:'14px',
+          md: '16px',
+        }
         
         
          }} >
