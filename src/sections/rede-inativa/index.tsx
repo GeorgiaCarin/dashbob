@@ -30,7 +30,7 @@ const data = [
 export default function RedeInativa() {
 
     return (
-        <div className='flex flex-col gap-4 my-4 '>
+        <div className='flex flex-col gap-4 py-4 '>
 
             <div className="flex flex-col gap-2 bg-white justify-between p-2 rounded-xl shadow-sm ">
                 <div className="flex gap-4 justify-between items-center ">

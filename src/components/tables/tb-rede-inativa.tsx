@@ -21,7 +21,7 @@ export const TableRedeInativa = ({data}:props) => {
         '& tr > *:first-child': { textAlign: 'left' },
         '& tr > *:not(:first-child):not(:last-child)': { textAlign: 'center' },
         fontSize: {
-          xs: '12px',
+          xs: '14px',
           sm:'14px',
           md: '16px',
         }
