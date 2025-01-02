@@ -1,12 +1,15 @@
 import axios from "axios";
 
 const authApi = axios.create({
-  baseURL: "", 
+  baseURL: import.meta.env.VITE_API_DASHBOARD,
+  timeout: 300000
 });
 
-export async function login(login: string, password: string) {
+export async function loginApi(login: string, password: string) {
   try {
-    const response = await authApi.post("/login", { login, password });
+    
+    const response = await authApi.post("/login", { login: login, password: password });
+
     const token = response.data.token;
 
     localStorage.setItem("token", token);

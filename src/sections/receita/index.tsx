@@ -14,6 +14,7 @@ export const Receita = () => {
     const [selectedMonth, setSelectedMonth] = useState(mes[0]);
     const currentYear = new Date().getFullYear()
     const currentMonth = mes.indexOf(selectedMonth)
+    
     useEffect(() => {
         
         console.log("mouth", getLastDate(currentYear,currentMonth))

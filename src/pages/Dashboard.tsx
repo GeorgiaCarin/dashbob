@@ -1,5 +1,4 @@
 
-import './App.css'
 import { Carteira } from '../sections/carteira'
 import Expansao from '../sections/expansao'
 import Footer from '../sections/footer'

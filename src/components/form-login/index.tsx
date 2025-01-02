@@ -1,24 +1,26 @@
-import React from "react";
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { login } from "../../services/AuthService";
+import { loginApi} from "../../services/AuthService";
 
-const LoginForm: React.FC = () => {
+export const LoginForm = () => {
   const formik = useFormik({
     initialValues: {
-      username: "",
+      login: "",
       password: "",
     },
     validationSchema: Yup.object({
-      username: Yup.string().required("Usuário é obrigatório"),
+      login: Yup.string().required("Usuário é obrigatório"),
       password: Yup.string().required("Senha é obrigatória"),
     }),
     onSubmit: async (values, { setSubmitting, setFieldError }) => {
+
       try {
-        await login(values.username, values.password);
+        await loginApi(values.login, values.password);
         alert("Login realizado com sucesso!");
       } catch (error) {
         setFieldError("username", "Usuário ou senha inválidos");
+        console.log(error)
       } finally {
         setSubmitting(false);
       }
@@ -33,9 +35,9 @@ const LoginForm: React.FC = () => {
       >
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
 
-        {formik.errors.username && formik.touched.username && (
-          <div className="bg-red-100 text-red-700 p-2 rounded mb-4">
-            {formik.errors.username}
+        {formik.errors.login && formik.touched.login && (
+          <div className="bg-rose-100 text-rose-700 p-2 rounded mb-4">
+            {formik.errors.login}
           </div>
         )}
         {formik.errors.password && formik.touched.password && (
@@ -50,17 +52,17 @@ const LoginForm: React.FC = () => {
           </label>
           <input
             type="text"
-            name="username"
+            name="login"
             placeholder="Digite seu usuário"
-            value={formik.values.username}
+            value={formik.values.login}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             className={`w-full p-2 border ${
-              formik.touched.username && formik.errors.username
+              formik.touched.login && formik.errors.login
                 ? "border-red-500"
                 : "border-gray-300"
             } rounded focus:outline-none focus:ring ${
-              formik.touched.username && formik.errors.username
+              formik.touched.login && formik.errors.login
                 ? "focus:ring-red-300"
                 : "focus:ring-blue-200"
             }`}
@@ -92,7 +94,7 @@ const LoginForm: React.FC = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full bg-blue-500 bg-primary-green text-white py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
           disabled={formik.isSubmitting}
         >
           {formik.isSubmitting ? "Carregando..." : "Entrar"}
@@ -102,4 +104,4 @@ const LoginForm: React.FC = () => {
   );
 };
 
-export default LoginForm;
+
