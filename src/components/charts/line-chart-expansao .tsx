@@ -3,14 +3,14 @@ import { LineChart, markElementClasses, lineElementClasses } from '@mui/x-charts
 import { mes } from '../../assets/data/data-receita';
 
 
-type inativos = {
+type expansao = {
     name: string
-    pontos: number[]
-    color: number
+    pontos: number
+    value: number
 }
 
 type props = {
-    data: inativos[]
+    data: expansao[]
 }
 export const SimpleLineChart = ({data}: props) => {
     // console.log(data[0])

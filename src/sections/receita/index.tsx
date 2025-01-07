@@ -4,22 +4,50 @@ import { TableReceita } from "../../components/tables/tb-receita"
 import ExpandCircleDown from "@mui/icons-material/ExpandCircleDown"
 import {indices as data} from "../../assets/data/data-receita"
 import { formatCurrency } from "../../utils/format-currency"
-import { mes } from "../../assets/data/data-receita"
+import { mes as mesOptions } from "../../assets/data/data-receita"
 import { useEffect, useState } from "react"
-import { getLastDate } from "../../utils/format-date"
+import { getLastDate, getStartDate } from "../../utils/format-date"
+import { api_dashboard } from "../../services/api"
 const dataIndice = ['Subestabelecido','Loja Própria','Negocial']
-const ano = ['2024', '2023', '2022']
+const anoOptions = ['2024', '2023', '2022']
 export const Receita = () => {
+    const [ano, setAno] = useState<number>(new Date().getFullYear())
+    const [mes, setMes] = useState<number>(new Date().getMonth() + 1)
+    const [data,setData] = useState<any[]>([])
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
     const [selectedIndice, setSelectedIndice] = useState(dataIndice[0]);
-    const [selectedMonth, setSelectedMonth] = useState(mes[0]);
-    const currentYear = new Date().getFullYear()
-    const currentMonth = mes.indexOf(selectedMonth)
-    
-    useEffect(() => {
+
+    useEffect(()=> {
+        const fetchData = async () => {
+            setLoading(true)
+            setError(null)
+            const dt_inicio = getStartDate(ano,mes)
+            const dt_fim = getLastDate(ano,mes)
+            try {
+                const response = await api_dashboard.get("/expansion-graphic",{
+                    params: {dt_inicio,dt_fim}
+                })
+                setData(response.data)
+                setLoading(false)
+                // console.log(response.data)
+            }catch(err){
+                setError("Erro ao carregar dados da API")
+                setLoading(false)
+            }
+        }
+        fetchData()
         
-        console.log("mouth", getLastDate(currentYear,currentMonth))
+    }, [ano,mes])
+
+    const handleAnoChange = (selectedAno) => {
+        setAno(selectedAno)
+    }
+
+    const handleMesChange = (selectedMes) => {
+        setMes(selectedMes)
+    }
     
-    }, [currentMonth,currentYear])
     
 
     return (
@@ -28,8 +56,8 @@ export const Receita = () => {
                 <div className="title text-center">receita</div>
                 <div className="flex gap-4 justify-between">
                     <SelectValue title='indice' options={dataIndice} onChange={(value) => setSelectedIndice(value)}/>
-                    <SelectValue title='Mês' options={mes} onChange={(value) => setSelectedMonth(value)}/>
-                    <SelectValue title='Ano' options={ano} />
+                    <SelectValue title='Mês' options={mesOptions} onChange={handleMesChange}/>
+                    <SelectValue title='Ano' options={anoOptions} onChange={handleAnoChange} />
                 </div>
             </div>
             <div className="flex flex-col laptop:flex-row gap-2 laptop:gap-4">
@@ -37,14 +65,14 @@ export const Receita = () => {
                     <div className="flex justify-between">
                         <div>
                             <div className="font-medium text-lg">{selectedIndice}</div>
-                            <div className="title text-secondary-green">{formatCurrency(data[0].faturamento)}</div>
+                            {/* <div className="title text-secondary-green">{formatCurrency(data[0].faturamento)}</div> */}
                         </div>
                         <div className="label flex gap-1 h-min justify-center items-center "><ExpandCircleDown /><p>65%</p></div>
                     </div>
                     <SimpleBarChart />
                 </div>
                 <div className="laptop:flex-1">
-                    <TableReceita data={data} />
+                    {/* <TableReceita data={data} /> */}
 
                 </div>
 

@@ -1,6 +1,7 @@
 
 import Table from '@mui/joy/Table';
 import { formatCurrency } from '../../utils/format-currency';
+
 type dataset = {
   label: string,
   qtd: number,
@@ -12,10 +13,11 @@ type props = {
 }
 
 export const TableCarteira = ({data}:props) => {
-  const total = {
-    totalQtd: data.reduce((sum, item) => sum + item.qtd, 0),
-    totalValue: data.reduce((sum, item) => sum + item.value, 0),
-  }
+
+  // const total = {
+  //   totalQtd: data.reduce((sum, item) => sum + item.qtd, 0),
+  //   totalValue: data.reduce((sum, item) => sum + item.value, 0),
+  // }
 
   return (
     <div className=' pb-2'>
@@ -39,7 +41,7 @@ export const TableCarteira = ({data}:props) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row) => (
+          {carteiradata.map((row) => (
             <tr key={row.label}>
               <td>{row.label}</td>
               <td>{row.qtd}</td>
@@ -47,7 +49,7 @@ export const TableCarteira = ({data}:props) => {
             
             </tr>
           ))}
-          <tr className='text-md font-semibold '>
+          {/* <tr className='text-md font-semibold '>
             <td>Total</td>
             <td>{total.totalQtd}</td>
             <td>{formatCurrency(total.totalValue)}</td>
@@ -56,7 +58,7 @@ export const TableCarteira = ({data}:props) => {
             <td>Tkt médio</td>
             <td></td>
             <td className=''>{(total.totalValue/total.totalQtd).toFixed(2)}</td>
-          </tr>
+          </tr> */}
         </tbody>
       </Table>
     </div>

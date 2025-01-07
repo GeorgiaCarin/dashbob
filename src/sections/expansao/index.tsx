@@ -7,13 +7,21 @@ import { useEffect, useState } from 'react'
 import { getLastDate, getStartDate } from '../../utils/format-date'
 import { api_dashboard } from '../../services/api'
 
+
 export default function Expansao() {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
     const [mes, setMes] = useState<number>(new Date().getMonth() + 1)
     const [data,setData] = useState<any[]>([])
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-
+    // const transformarDados = (data) => {
+    //     return Object.keys(data.cadastrados).map((mes) => ({
+    //         mes,
+    //         cadastrados: data.cadastrados[mes],
+    //         liberados: data.liberados[mes],
+    //         instalados: data.instalados[mes]
+    //     }));
+    // };
 
     useEffect(()=> {
         const fetchData = async () => {
@@ -27,7 +35,7 @@ export default function Expansao() {
                 })
                 setData(response.data)
                 setLoading(false)
-                console.log(response.data)
+                // console.log(response.data)  
             }catch(err){
                 setError("Erro ao carregar dados da API")
                 setLoading(false)
