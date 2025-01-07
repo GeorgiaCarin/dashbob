@@ -3,6 +3,7 @@ import { TableCarteira } from "../../components/tables/tb-carteira"
 import {carteiraData as data} from "../../assets/data/data-example"
 
 export const Carteira = () => {
+    no
     return (
         <div className="shadow-md py-4 laptop:px-4 bg-white flex flex-col gap-4 rounded-xl">
             <h1 className="title text-4xl text-dark-blue text-center laptop:text-left laptop:p-2">Carteira</h1>

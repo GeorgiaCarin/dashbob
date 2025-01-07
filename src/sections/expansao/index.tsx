@@ -3,6 +3,7 @@ import { SelectValue } from '../../components/select'
 import { SimpleLineChart } from '../../components/charts/line-chart'
 import { pData, qData, uData } from '../../assets/data/data-example'
 import {ano, mes} from "../../assets/data/data-example"
+import { useState } from 'react'
 const data = [
     {
         name: 'Cadastrados',
@@ -22,6 +23,11 @@ const data = [
     },
 ]
 export default function Expansao() {
+    const [ano, setAno] = useState<number>(new Date().getFullYear())
+    const [mes, setMes] = useState<number>(new Date().getMonth() + 1)
+    const [data,setData] = useState<any[]>([])
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
 
     return (
         <div className='flex flex-col gap-4 my-4 laptop:my-0 laptop:rounded-lg'>
