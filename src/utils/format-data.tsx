@@ -1,0 +1,1 @@
+const array = Object.entries(data).map(([key, value]) => ({ key, value }));

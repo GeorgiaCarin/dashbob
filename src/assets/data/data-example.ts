@@ -123,4 +123,24 @@ export const mes = [
   'Nov',
   'Dez',
 ];
+
+export const mes1 = [
+  'Jan',
+  'Fev',
+  'Mar',
+  'Abr',
+  'Mai',
+  'Jun',
+  'Jul',
+  'Ago',
+  'Set',
+  'Out',
+  'Nov',
+  'Dez',
+];
 export const ano = ['2024', '2023', '2022']
+
+
+
+
+

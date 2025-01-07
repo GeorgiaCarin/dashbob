@@ -20,7 +20,7 @@ export const getLastDate = (year: number, month: number): string => {
 
 export const getStartDate = (year: number, month: number): string => {
     
-    const date = new Date(year,month - 11, 0 )
+    const date = new Date(year,month - 10, 0 )
     return date.toISOString().split("T")[0]
     //return formatDate(date)
 }

@@ -5,11 +5,12 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 type Props = {
     title: string;
     options: string[];
+    initialValue?: string;
     onChange?: (value: string) => void;
 };
 
-export const SelectValue = ({ title, options, onChange }: Props) => {
-    const [value, setValue] = React.useState<string>(options[0]);
+export const SelectValue = ({ title, options, onChange,initialValue }: Props) => {
+    const [value, setValue] = React.useState<string>(initialValue || options[0] || "");
 
     const handleChange = (event: SelectChangeEvent<string>) => {
         const newValue = event.target.value;

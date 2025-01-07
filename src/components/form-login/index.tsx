@@ -2,8 +2,10 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { loginApi} from "../../services/AuthService";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
+  const navigate = useNavigate()
   const formik = useFormik({
     initialValues: {
       login: "",
@@ -18,6 +20,7 @@ export const LoginForm = () => {
       try {
         await loginApi(values.login, values.password);
         alert("Login realizado com sucesso!");
+        navigate("/dashboard")
       } catch (error) {
         setFieldError("username", "Usuário ou senha inválidos");
         console.log(error)

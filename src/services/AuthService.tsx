@@ -13,7 +13,7 @@ export async function loginApi(login: string, password: string) {
     const token = response.data.token;
 
     localStorage.setItem("token", token);
-    console.log("Login realizado com sucesso!");
+    console.log("Login realizado com sucesso!!");
   } catch (error) {
     console.error("Erro ao fazer login:", error);
     throw error;
