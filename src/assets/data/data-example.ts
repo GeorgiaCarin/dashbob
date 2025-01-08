@@ -78,9 +78,9 @@ export const redeInativaData = [
 
   
   export const inadimplencia = [
-    { name: "Saldo Devedor Total", value: 2 },
-    { name: "Saldo Devedor Negociado", value: 5 },
-    { name: "perda", value: 2 },
+    { label: "Saldo Devedor Total", value: 2 },
+    { label: "Saldo Devedor Negociado", value: 5 },
+    { label: "perda", value: 2 },
   ];
 
 export const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490, 2400, 1398, 9800, 3908, 4800];

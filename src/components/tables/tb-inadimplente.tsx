@@ -2,7 +2,7 @@ import { Table } from '@mui/joy'
 
 
 type data = {
-    name: string
+    label: string
     value: number
 }
 
@@ -26,9 +26,9 @@ export default function TableInadimplente({data}:props) {
         </thead>
         <tbody>
             {data.map((item) => (
-                <tr key={item.name}>
+                <tr key={item.label}>
                     <td>
-                        {item.name}
+                        {item.label}
                     </td>
                     <td>
                         {item.value} 

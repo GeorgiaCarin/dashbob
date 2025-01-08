@@ -1,27 +1,32 @@
+import { inadimplencia } from '../../assets/data/data-example';
+import TableInadimplente from '../../components/tables/tb-inadimplente';
+import { api_dashboard } from '../../services/api';
+import { getLastDate } from '../../utils/format-date';
 
-import { inadimplencia } from '../../assets/data/data-example'
-import TableInadimplente from '../../components/tables/tb-inadimplente'
-import { api_dashboard } from '../../services/api'
 export default function Inadimplente() {
   const inadimplenciaData = async () => {
+    const currentDate = new Date();
+    const dt_inicio = getLastDate(currentDate.getFullYear(), currentDate.getMonth());
+    const dt_fim = dt_inicio; 
+    
     try {
-      const response = await api_dashboard.post('inadimplencia',{
-        dt_inicio: '2024-01-01',
-        dt_fim: '2024-01-01'
-      })
-      console.log(response)
+      const response = await api_dashboard.get('inadimplencia', {
+        params: {
+          dt_inicio,
+          dt_fim,
+        },
+      });
+      console.log('Resposta da API:', response);
     } catch (error) {
-      console.log('erro ao pegar dados',error)
-
+      console.log('Erro ao pegar dados:', error);
     }
-  }
-
+  };
 
   return (
-    <div className=" py-3 bg-white rounded-xl shadow-sm border-b-2">
-        <h1 className="title text-dark-blue text-center">Inadimplência</h1>   
-        <TableInadimplente data={inadimplencia} />
-        <button onClick={inadimplenciaData}>teste</button>
+    <div className="py-3 bg-white rounded-xl shadow-sm border-b-2">
+      <h1 className="title text-dark-blue text-center">Inadimplência</h1>
+      <TableInadimplente data={inadimplencia} />
+      <button onClick={inadimplenciaData}>Teste</button>
     </div>
-  )
+  );
 }
