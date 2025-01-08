@@ -20,8 +20,20 @@ export const carteiraData = [
     value: 89716.54,
     qtd: 157,
   },
- 
 ];
+
+
+export const data1 = {
+  "qtd_liquidados": 1,
+  "valor_liquidados": 1.1,
+  "qtd_a_vencer": 1,
+  "valor_a_vencer": 1,
+  "qtd_vencidos": 1,
+  "valor_vencidos": 1.96,
+  "qtd_cancelados": 1,
+  "valor_cancelados": 1.43
+}
+
 
 export const redeInativaData = [
   {

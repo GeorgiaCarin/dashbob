@@ -1,6 +1,6 @@
 import { CustomPieChart } from "../../components/charts/pie-chart"
 import { TableCarteira } from "../../components/tables/tb-carteira"
-import {carteiraData as data} from "../../assets/data/data-example"
+import { data1} from "../../assets/data/data-example"
 import { useEffect, useState } from "react"
 import { getLastDate } from "../../utils/format-date"
 import { api_dashboard } from "../../services/api"
@@ -10,6 +10,7 @@ export const Carteira = () => {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
     const [mes, setMes] = useState<number>(new Date().getMonth() )
     const [data,setData] = useState<any[]>([])
+    const [carteiradata, setCarteiradata] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -34,18 +35,24 @@ export const Carteira = () => {
         fetchData()
         
     }, [ano,mes])
+    useEffect(() => {
+        //mudar data e condicionak
+    if (data.length == 0) {
+        setCarteiradata(carteiraData(data1));
 
+    }
+    }, [data1]);
     
     return (
         <div className="shadow-md py-4 laptop:px-4 bg-white flex flex-col gap-4 rounded-xl">
             <h1 className="title text-4xl text-dark-blue text-center laptop:text-left laptop:p-2">Carteira</h1>
             <div className="flex flex-col laptop:flex-row items-center gap-4">
                 <div className="">
-                    {/* <CustomPieChart data={data} /> */}
+                    <CustomPieChart data={carteiradata} />
 
                 </div>
                 <div className="laptop:w-3/6 laptop:px-2">
-                    <TableCarteira data={data} />
+                    <TableCarteira data={carteiradata} />
 
                 </div>
             

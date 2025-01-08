@@ -14,11 +14,9 @@
 //     }));
 //   };
 
- export const carteiraData = (data: any) => [
+export const carteiraData = (data: any) => [
   { label: 'Liquidados', qtd: data.qtd_liquidados, value: data.valor_liquidados },
   { label: 'A vencer', qtd: data.qtd_a_vencer, value: data.valor_a_vencer },
   { label: 'Vencidos', qtd: data.qtd_vencidos, value: data.valor_vencidos },
   { label: 'Cancelados', qtd: data.qtd_cancelados, value: data.valor_cancelados },
-  { label: 'Total', qtd: data.qtd_total, value: data.valor_total },
-  { label: 'Média', qtd: data.qtd_media, value: data.valor_media }
 ];
