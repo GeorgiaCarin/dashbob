@@ -12,6 +12,7 @@ type props = {
 }
 
 export default function TableRedeAtiva({data}:props) {
+
   return (
     <div className='bg-white py-1 rounded-xl shadow-sm border-b-2'>
         <Table borderAxis={"none"} size='lg' sx={{ 

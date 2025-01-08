@@ -38,3 +38,16 @@ export const visaoGeralData = (data: any) => [
   { title: 'Em prospecção', value: data.em_prospeccao, style: '' },
   { title: 'Total', value: data.total, style: 'bg-light-green-200' },
 ];
+
+
+export const redeAtivaFaixaData = (data: any) => [
+  { faixa: 'Até 100', pontos: data.ate_100.pontos, trn: data.ate_100.transacoes, trnMedia: data.ate_100.media_transacoes },
+  { faixa: '101 a 750', pontos: data['101_a_750'].pontos, trn: data['101_a_750'].transacoes, trnMedia: data['101_a_750'].media_transacoes },
+  { faixa: '751 a 3000', pontos: data['751_a_3000'].pontos, trn: data['751_a_3000'].transacoes, trnMedia: data['751_a_3000'].media_transacoes },
+  { faixa: '3001 a 5000', pontos: data['3001_a_5000'].pontos, trn: data['3001_a_5000'].transacoes, trnMedia: data['3001_a_5000'].media_transacoes },
+  { faixa: 'Acima de 5000', pontos: data.acima_de_5000.pontos, trn: data.acima_de_5000.transacoes, trnMedia: data.acima_de_5000.media_transacoes },
+];
+
+//------------------------------------------------
+
+

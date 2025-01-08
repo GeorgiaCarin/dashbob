@@ -8,7 +8,7 @@ import { carteiraData } from "../../utils/format-data"
 export const Carteira = () => {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
     const [mes, setMes] = useState<number>(new Date().getMonth() )
-    const [data,setData] = useState<any>()
+    const [data, setData] = useState<any>()
     const [carteiradata, setCarteiradata] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);

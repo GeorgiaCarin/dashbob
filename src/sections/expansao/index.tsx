@@ -1,7 +1,6 @@
 
 import { SelectValue } from '../../components/select'
 import { SimpleLineChart } from '../../components/charts/line-chart'
-import { pData, qData, uData } from '../../assets/data/data-example'
 import {ano as anoOptions, mes as  mesOptions} from "../../assets/data/data-example"
 import { useEffect, useState } from 'react'
 import { getLastDate, getStartDate } from '../../utils/format-date'
