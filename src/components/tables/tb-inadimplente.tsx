@@ -1,4 +1,5 @@
 import { Table } from '@mui/joy'
+import { formatCurrency } from '../../utils/format-currency'
 
 
 type data = {
@@ -31,7 +32,7 @@ export default function TableInadimplente({data}:props) {
                         {item.label}
                     </td>
                     <td>
-                        {item.value} 
+                        {formatCurrency(item.value)} 
                     </td>
                 
                 </tr>
