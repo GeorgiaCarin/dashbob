@@ -14,13 +14,14 @@
 //     }));
 //   };
 
-export const carteiraData = (data: any) => [
-  { label: 'Liquidados', qtd: data.qtd_liquidados, value: data.valor_liquidados },
-  { label: 'A vencer', qtd: data.qtd_a_vencer, value: data.valor_a_vencer },
-  { label: 'Vencidos', qtd: data.qtd_vencidos, value: data.valor_vencidos },
-  { label: 'Cancelados', qtd: data.qtd_cancelados, value: data.valor_cancelados },
-];
-
+export const carteiraData = (data: any) => {
+  return [
+    { label: "Liquidados", qtd: data.qtd_liquidados, value: data.valor_liquidados },
+    { label: "A vencer", qtd: data.qtd_a_vencer, value: data.valor_a_vencer },
+    { label: "Vencidos", qtd: data.qtd_vencidos, value: data.valor_vencidos },
+    { label: "Cancelados", qtd: data.qtd_cancelados, value: data.valor_cancelados }
+  ];
+}
 export const inadimplenciaData = (data: any) => [
   { label: 'Saldo Devedor Total', value: data.valor_liquidados },
   { label: 'Saldo Devedor Negociado', value: data.valor_a_vencer },

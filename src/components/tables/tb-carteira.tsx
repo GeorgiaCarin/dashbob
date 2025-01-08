@@ -14,6 +14,7 @@ type props = {
 
 export const TableCarteira = ({data}:props) => {
 
+ 
   const total = {
     totalQtd: data.reduce((sum, item) => sum + item.qtd, 0),
     totalValue: data.reduce((sum, item) => sum + item.value, 0),

@@ -1,6 +1,5 @@
 import { CustomPieChart } from "../../components/charts/pie-chart"
 import { TableCarteira } from "../../components/tables/tb-carteira"
-import { data1} from "../../assets/data/data-example"
 import { useEffect, useState } from "react"
 import { getLastDate } from "../../utils/format-date"
 import { api_dashboard } from "../../services/api"
@@ -9,7 +8,7 @@ import { carteiraData } from "../../utils/format-data"
 export const Carteira = () => {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
     const [mes, setMes] = useState<number>(new Date().getMonth() )
-    const [data,setData] = useState<any[]>([])
+    const [data,setData] = useState<any>()
     const [carteiradata, setCarteiradata] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -24,9 +23,10 @@ export const Carteira = () => {
                 const response = await api_dashboard.get("/painting",{
                     params: {dt_inicio,dt_fim}
                 })
-                setData(response.data)
+                setData(response.data.data)
                 setLoading(false)
-                console.log('data',response.data)  
+
+           
             }catch(err){
                 setError("Erro ao carregar dados da API")
                 setLoading(false)
@@ -36,13 +36,13 @@ export const Carteira = () => {
         
     }, [ano,mes])
     useEffect(() => {
-        //mudar data e condicionak
-    if (data.length == 0) {
-        setCarteiradata(carteiraData(data1));
+        
+    if (data) {
+        setCarteiradata(carteiraData(data));
+
 
     }
-    }, [data1]);
-    
+    }, [data]);
     return (
         <div className="shadow-md py-4 laptop:px-4 bg-white flex flex-col gap-4 rounded-xl">
             <h1 className="title text-4xl text-dark-blue text-center laptop:text-left laptop:p-2">Carteira</h1>
