@@ -23,8 +23,18 @@ export const carteiraData = (data: any) => {
   ];
 }
 export const inadimplenciaData = (data: any) => [
-  { label: 'Saldo Devedor Total', value: data.valor_liquidados },
-  { label: 'Saldo Devedor Negociado', value: data.valor_a_vencer },
-  { label: 'perda', value: data.valor_vencidos },
+  { label: 'Saldo Devedor Total', value: data.saldo_devedor },
+  { label: 'Saldo Devedor Negociado', value: data.perda },
+  { label: 'perda', value: data.negociado },
 
+];
+
+export const visaoGeralData = (data: any) => [
+  { title: 'Ativos', value: data.ativos, style: '' },
+  { title: 'Liberados', value: data.liberados, style: '' },
+  { title: 'Subtotal', value: data.subtotal, style: 'bg-light-green-200' },
+  { title: 'CENOP', value: data.cenop, style: '' },
+  { title: 'Inoperantes', value: data.inoperantes, style: '' },
+  { title: 'Em prospecção', value: data.em_prospeccao, style: '' },
+  { title: 'Total', value: data.total, style: 'bg-light-green-200' },
 ];

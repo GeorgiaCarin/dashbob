@@ -1,68 +1,52 @@
 // import { styled } from "@mui/material";
+import { useEffect, useState } from "react"
 import { Line } from "../../components/line"
-// import { blue, green, red } from "@mui/material/colors";
-type dataProps = {
-    title: string,
-    value: number,
-    style: string
-}
-const data: dataProps[] = [
-    {
-        title: 'Ativos',
-        value: 4577,
-        style: ''
-    },
-    {
-        title: 'Liberados',
-        value: 1,
-        style: ''
-    },
-    {
-        title: 'Subtotal',
-        value: 4578,
-        style: 'bg-light-green-200'
-    },
-    {
-        title: 'CENOP',
-        value: 25,
-        style: ''
-    },
-    {
-        title: 'Inoperantes',
-        value: 2,
-        style: ''
-    },
-    {
-        title: 'Em prospecção',
-        value: 0,
-        style: ''
-    },
-    {
-        title: 'Total',
-        value: 4649,
-        style: 'bg-light-green-200'
-    },
-]
-// const Root = styled('div')(({ theme }) => ({
-//     padding: theme.spacing(1),
-//     [theme.breakpoints.down('md')]: {
-//       backgroundColor: red[500],
-//     },
-//     [theme.breakpoints.up('md')]: {
-//       backgroundColor: blue[500],
-//     },
-//     [theme.breakpoints.up('lg')]: {
-//       backgroundColor: green[500],
-//     },
-//   }));
+import { api_dashboard } from "../../services/api"
+import { carteiraData, visaoGeralData } from "../../utils/format-data"
+import { getLastDate } from "../../utils/format-date"
+
+
+
+
 export const VisaoGeral = () => {
+    const currentDate = new Date();
+    const [visaodata, setVisaodata] = useState<any[]>([]);
+    const [data, setData] = useState<any>();
+    const dt_inicio = getLastDate(currentDate.getFullYear(), currentDate.getMonth());
+    const dt_fim = dt_inicio; 
+    useEffect(() => {
+      const fetchData = async () => {
+        try{
+            const response = await api_dashboard.get("/overview", {
+                params: {
+                    dt_inicio, dt_fim
+                }
+            })
+            setData(response.data.data)
+
+
+        } catch (err){
+            console.error('sem dados')
+        }
+      }
+    
+    fetchData()
+    }, [dt_inicio, dt_fim])
+    useEffect(() => {
+        
+        if (data) {
+            setVisaodata(visaoGeralData(data));
+       
+    
+        }
+    },[data])
     return (
         // <Root>
 
             <div className="bg-light-green-50 rounded-lg text-center p-4 shadow-sm laptop:h-full laptop:w-full border-b-2" >
                 <h1 className="title text-secondary-green">Visão Geral</h1>
                 <div className=" flex flex-col gap-2 tablet:gap-4">
-                    {data.map((item) => (
+                    {visaodata.map((item) => (
                         <div key={item.title}>
                             <Line title={item.title} value={item.value} style={item.style} />
                         </div>
