@@ -1,40 +1,44 @@
 
 import { SelectValue } from '../../components/select'
-import { SimpleLineChart } from '../../components/charts/line-chart'
+import { SimpleLineChart } from '../../components/charts/line-chart-expansao '
 import {ano as anoOptions, mes as  mesOptions} from "../../assets/data/data-example"
 import { useEffect, useState } from 'react'
 import { getLastDate, getStartDate } from '../../utils/format-date'
 import { api_dashboard } from '../../services/api'
 
 
+type Meses = 'janeiro' | 'fevereiro' | 'marco' | 'abril' | 'maio' | 'junho' | 'julho' | 'agosto' | 'setembro' | 'outubro' | 'novembro' | 'dezembro';
+
+interface Dados {
+  cadastrados: Record<Meses, number>;
+  liberados: Record<Meses, number>;
+  instalados: Record<Meses, number>;
+}
+
 export default function Expansao() {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
-    const [mes, setMes] = useState<number>(new Date().getMonth() + 1)
-    const [data,setData] = useState<any[]>([])
+    const [mes, setMes] = useState<number>(new Date().getMonth() )
+    const [data,setData] = useState<Dados>()
+    const [expansaodata,setExpansaoData] = useState<any[]>([])
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    // const transformarDados = (data) => {
-    //     return Object.keys(data.cadastrados).map((mes) => ({
-    //         mes,
-    //         cadastrados: data.cadastrados[mes],
-    //         liberados: data.liberados[mes],
-    //         instalados: data.instalados[mes]
-    //     }));
-    // };
+    const dt_inicio = getStartDate(ano,mes)
+    const dt_fim = getLastDate(ano,mes)
+ 
 
     useEffect(()=> {
         const fetchData = async () => {
             setLoading(true)
             setError(null)
-            const dt_inicio = getStartDate(ano,mes)
-            const dt_fim = getLastDate(ano,mes)
+       
             try {
+                console.log(dt_fim,dt_inicio)
                 const response = await api_dashboard.get("/expansion-graphic",{
-                    params: {dt_inicio,dt_fim}
+                    params: {dt_inicio: dt_inicio,dt_fim: dt_fim}
                 })
-                setData(response.data)
+                setData(response.data.data)
                 setLoading(false)
-                // console.log(response.data)  
+              
             }catch(err){
                 setError("Erro ao carregar dados da API")
                 setLoading(false)
@@ -43,7 +47,6 @@ export default function Expansao() {
         fetchData()
         
     }, [ano,mes])
-
     const handleAnoChange = (selectedAno) => {
         setAno(selectedAno)
     }
@@ -66,7 +69,7 @@ export default function Expansao() {
                 </div>
             </div>
             <div className='border-b-2'>
-            {/* <SimpleLineChart data={data} /> */}
+            <SimpleLineChart data={data} mesInicial='Jan' dtFim={dt_fim} dtInicio={dt_inicio} />
             {/* <TableSimples data={data} /> */}
 
             </div>

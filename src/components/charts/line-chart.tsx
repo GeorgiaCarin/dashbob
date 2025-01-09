@@ -12,13 +12,13 @@ type inativos = {
 type props = {
     data: inativos[]
 }
-export const SimpleLineChart = ({data}: props) => {
+export const  SimpleLineChart = ({data}: props) => {
 
     const color = ['#13287E','#8FC043','#c41515']
 
     return (
         <div className='bg-white shadow-sm p-4 rounded-xl laptop:rounded-xl'>
-            <div className='flex justify-around'>
+            {/* <div className='flex justify-around'>
                 <div className='text-center ' >
                     <p className='font-medium'>{data[0].name}</p>
                     <p className={` text-dark-blue font-semibold text-xl`}>{data[0].pontos[data[0].pontos.length - 1]}</p>
@@ -70,7 +70,7 @@ export const SimpleLineChart = ({data}: props) => {
 
                 }
             }}
-            />
+            /> */}
         </div>
     );
 }

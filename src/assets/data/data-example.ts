@@ -150,7 +150,7 @@ export const mes1 = [
   'Nov',
   'Dez',
 ];
-export const ano = ['2024', '2023', '2022']
+export const ano = ['2025','2024', '2023', '2022']
 
 
 

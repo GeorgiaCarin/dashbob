@@ -40,6 +40,7 @@ export const visaoGeralData = (data: any) => [
 ];
 
 
+
 export const redeAtivaFaixaData = (data: any) => [
   { faixa: 'Até 100', pontos: data.ate_100.pontos, trn: data.ate_100.transacoes, trnMedia: data.ate_100.media_transacoes },
   { faixa: '101 a 750', pontos: data['101_a_750'].pontos, trn: data['101_a_750'].transacoes, trnMedia: data['101_a_750'].media_transacoes },
@@ -50,4 +51,26 @@ export const redeAtivaFaixaData = (data: any) => [
 
 //------------------------------------------------
 
+
+
+type Meses = 'janeiro' | 'fevereiro' | 'marco' | 'abril' | 'maio' | 'junho' | 'julho' | 'agosto' | 'setembro' | 'outubro' | 'novembro' | 'dezembro';
+
+interface Dados {
+  cadastrados: Record<Meses, number>;
+  liberados: Record<Meses, number>;
+  instalados: Record<Meses, number>;
+}
+
+export const transformarDadosParaGrafico = (data: Dados, mesesOrdenados: string[]) => {
+  const nomes = ['Cadastrados', 'Liberados', 'Instalados'];
+  const cores = ['#13287E', '#8FC043', '#c41515'];
+
+  const datasets = ['cadastrados', 'liberados', 'instalados'] as const;
+
+  return datasets.map((key, index) => ({
+    name: nomes[index],
+    pontos: mesesOrdenados.map((mes) => data[key][mes as Meses]),
+    color: cores[index],
+  }));
+};
 

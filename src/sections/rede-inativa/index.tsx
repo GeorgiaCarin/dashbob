@@ -1,5 +1,5 @@
 
-import {SimpleLineChart} from '../../components/charts/line-chart'
+import {SimpleLineChart} from '../../components/charts/line-chart-expansao '
 import { SelectValue } from '../../components/select'
 
 import { uData, pData, qData } from '../../assets/data/data-example'
@@ -43,7 +43,7 @@ export default function RedeInativa() {
             </div>
             <div className='laptop:flex flex flex-col laptop:flex-row gap-2'>
                 <div className='laptop:w-1/2 bg-white rounded-xl border-b-2'>
-                    <SimpleLineChart data={data} />
+                    {/* <SimpleLineChart data={data} /> */}
                 </div>
                 <div className='laptop:w-1/2 h-[100%] border-b-2'>
                     <TableRedeInativa data={redeInativaData} />

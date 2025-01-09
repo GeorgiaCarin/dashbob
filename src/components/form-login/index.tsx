@@ -19,7 +19,6 @@ export const LoginForm = () => {
 
       try {
         await loginApi(values.login, values.password);
-        alert("Login realizado com sucesso!");
         navigate("/dashboard")
       } catch (error) {
         setFieldError("username", "Usuário ou senha inválidos");

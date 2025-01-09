@@ -28,7 +28,7 @@ export const RedeAtiva = () => {
                     params: {dt_inicio: dt_fim, dt_fim}
                 })
                 setData(response.data.data.analise_transacional)
-                console.log(data)
+            
 
  
             }catch(err){
