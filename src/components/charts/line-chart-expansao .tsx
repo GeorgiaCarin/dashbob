@@ -1,8 +1,9 @@
 
 import { LineChart, markElementClasses, lineElementClasses } from '@mui/x-charts/LineChart';
 
-import { obterMesesIntervalo, ordenarMeses } from '../../utils/format-graph';
-import { transformarDados, transformarDadosParaGrafico } from '../../utils/format-data';
+import { obterMesesIntervalo } from '../../utils/format-graph';
+import { transformarDadosParaGrafico } from '../../utils/format-data';
+import { LinearProgress } from '@mui/joy';
 
 type Meses = 'janeiro' | 'fevereiro' | 'marco' | 'abril' | 'maio' | 'junho' | 'julho' | 'agosto' | 'setembro' | 'outubro' | 'novembro' | 'dezembro';
 
@@ -20,11 +21,13 @@ type props = {
 }
 export const SimpleLineChart = ({data,dtInicio,dtFim}: props) => {
     if (!data || data.length === 0) {
-        return <div>Carregando...</div>; // Ou qualquer mensagem de loading que você preferir
+      return <LinearProgress size="sm" sx={{
+        color: '#8FC043'    
+      }} />;
     }
     const mesesOrdenados = obterMesesIntervalo(dtInicio, dtFim);
     const dadosTransformados = transformarDadosParaGrafico(data, mesesOrdenados);
-    const color = ['#13287E','#8FC043','#c41515']
+
 
 
     return (
@@ -76,8 +79,3 @@ export const SimpleLineChart = ({data,dtInicio,dtFim}: props) => {
         </div>
     );
 }
-// const lineParams = {
-
-//     slotProps: { legend: { hidden: true } },
-  
-//   };

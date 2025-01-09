@@ -69,7 +69,7 @@ export const Receita = () => {
                         </div>
                         <div className="label flex gap-1 h-min justify-center items-center "><ExpandCircleDown /><p>65%</p></div>
                     </div>
-                    <SimpleBarChart />
+                    {/* <SimpleBarChart /> */}
                 </div>
                 <div className="laptop:flex-1">
                     {/* <TableReceita data={data} /> */}

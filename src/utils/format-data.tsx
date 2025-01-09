@@ -74,3 +74,21 @@ export const transformarDadosParaGrafico = (data: Dados, mesesOrdenados: string[
   }));
 };
 
+interface Pontos {
+  pontos_ativos: Record<Meses, number>
+}
+
+export const PontosData = (data: Pontos,mesesOrdenados:string[]) => {
+  
+}
+
+
+interface DadosAtivos {
+  pontos_ativos: Record<Meses, number>;
+}
+
+export const AtivosData = (data: DadosAtivos, mesesOrdenados: string[]): number[] => {
+  return mesesOrdenados.map((mes) => data.pontos_ativos[mes as Meses]);
+};
+
+
