@@ -4,14 +4,14 @@ export const obterMesesIntervalo = (dtInicio: string, dtFim: string): string[] =
   const dataInicio = new Date(dtInicio);
   const dataFim = new Date(dtFim);
 
-  const mesInicio = dataInicio.getMonth(); // Índice do mês inicial (0 = janeiro)
-  const mesFim = dataFim.getMonth(); // Índice do mês final
+  const mesInicio = dataInicio.getMonth();
+  const mesFim = dataFim.getMonth(); 
 
   if (dataInicio > dataFim) {
     throw new Error('A data de início não pode ser posterior à data de fim.');
   }
 
-  // Retorna os meses no intervalo correto
+  
   if (mesInicio <= mesFim) {
     return meses.slice(mesInicio, mesFim + 1);
   } else {

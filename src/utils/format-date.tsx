@@ -32,3 +32,25 @@ export const formatDate = (date: Date): string => {
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   }
+
+  export const obterMesesAteAtual = (ano: number): string[] => {
+    const meses = [
+      'janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho',
+      'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
+    ];
+    const dataAtual = new Date();
+    const anoAtual = dataAtual.getFullYear();
+    const mesAtual = dataAtual.getMonth(); 
+    
+
+    if (ano < anoAtual) {
+    
+        return meses;
+    } else if (ano === anoAtual) {
+
+      return meses.slice(0, mesAtual + 1);
+    }
+  
+    return [];
+  };
+  

@@ -74,14 +74,6 @@ export const transformarDadosParaGrafico = (data: Dados, mesesOrdenados: string[
   }));
 };
 
-interface Pontos {
-  pontos_ativos: Record<Meses, number>
-}
-
-export const PontosData = (data: Pontos,mesesOrdenados:string[]) => {
-  
-}
-
 
 interface DadosAtivos {
   pontos_ativos: Record<Meses, number>;
@@ -92,3 +84,30 @@ export const AtivosData = (data: DadosAtivos, mesesOrdenados: string[]): number[
 };
 
 
+type TipoDistrato = {
+  tipo: string;
+  distratos: number;
+  total: number;
+};
+
+type DistratoPorTipo = {
+  [key: string]: number; 
+};
+
+type DataDistrato = {
+  distrato_por_tipo: DistratoPorTipo;
+  total_por_tipo: DistratoPorTipo;
+};
+
+export const tiposDistratos = (data: DataDistrato): TipoDistrato[] => {
+  const distratoPorTipo = data.distrato_por_tipo;
+  const totalPorTipo = data.total_por_tipo;
+
+  const chaves = Object.keys(distratoPorTipo);
+
+  return chaves.map((tipo) => ({
+    tipo,
+    distratos: distratoPorTipo[tipo],
+    total: totalPorTipo[tipo],
+  }));
+};
