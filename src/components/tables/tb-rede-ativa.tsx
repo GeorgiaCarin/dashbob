@@ -1,4 +1,5 @@
 import { LinearProgress, Table } from '@mui/joy'
+import Loading from '../loading'
 
 type ativos = {
     faixa: string
@@ -12,10 +13,8 @@ type props = {
 }
 
 export default function TableRedeAtiva({data}:props) {
-    if (!data || data.length === 0) {
-        return <LinearProgress size="sm" sx={{
-            color: '#8FC043'    
-          }} />;
+    if (!data! || data.length == 0){
+        return <Loading />
     }
   return (
     <div className='bg-white py-1 rounded-xl shadow-sm border-b-2'>

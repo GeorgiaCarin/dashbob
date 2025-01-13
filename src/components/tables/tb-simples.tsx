@@ -1,4 +1,5 @@
 import { Table } from '@mui/joy'
+import Loading from '../loading'
 
 
 type inativos = {
@@ -11,7 +12,10 @@ type props = {
 }
 
 export default function TableSimples({data}:props) {
-  return (
+    if (!data || data.length == 0){
+        return <Loading />
+      }
+    return (
     <div className='bg-white shadow-md rounded-md'>
         <Table borderAxis={"none"} size='lg' sx={{ 
             '& tr > *:last-child': { textAlign: 'right' },

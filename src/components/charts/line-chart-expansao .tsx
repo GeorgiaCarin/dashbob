@@ -3,7 +3,8 @@ import { LineChart, markElementClasses, lineElementClasses } from '@mui/x-charts
 
 import { obterMesesIntervalo } from '../../utils/format-graph';
 import { transformarDadosParaGrafico } from '../../utils/format-data';
-import { LinearProgress } from '@mui/joy';
+
+import Loading from '../loading';
 
 type Meses = 'janeiro' | 'fevereiro' | 'marco' | 'abril' | 'maio' | 'junho' | 'julho' | 'agosto' | 'setembro' | 'outubro' | 'novembro' | 'dezembro';
 
@@ -20,10 +21,8 @@ type props = {
     dtFim: string; 
 }
 export const SimpleLineChart = ({data,dtInicio,dtFim}: props) => {
-    if (!data || data.length === 0) {
-      return <LinearProgress size="sm" sx={{
-        color: '#8FC043'    
-      }} />;
+    if (!data) {
+      return <Loading />
     }
     const mesesOrdenados = obterMesesIntervalo(dtInicio, dtFim);
     const dadosTransformados = transformarDadosParaGrafico(data, mesesOrdenados);

@@ -14,15 +14,17 @@ import { SimpleBarChart } from "../../components/charts/bar-chart"
 export const RedeAtiva = () => {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
     const [mes, setMes] = useState<number>(new Date().getMonth())
-    const [data,setData] = useState()
+    const [data,setData] = useState<any>()
     const [pontos, setPontos] = useState<any>()
-    const [redeAtivaFaixadata, setredeAtivaFaixadata] = useState<any>()
-
+    const [tarifa, setTarifa] = useState<number>()
+    const [totalTrn, setTotalTrn] = useState<number>()
     const dt_atual = getLastDate(new Date().getFullYear(),new Date().getMonth() )
     const dt_inicio = getStartDate(ano,mes)
     const dt_fim = getLastDate(ano,mes)
     const mesOptions = obterMesesAteAtual(ano)
+    // const handleSum = redeAtivaFaixadata.reduce((sum, item) => sum + item.trn, 0);
 
+    // console.log(totalTrn); 
     useEffect(()=> {
       const fetchData = async () => {
 
@@ -33,10 +35,15 @@ export const RedeAtiva = () => {
               const responsePontoa = await api_dashboard.get("/active-points-graphic",{
                 params: {dt_inicio, dt_fim}
               })
-              setData(response.data.data.analise_transacional)
+              const tarifaMedia = await api_dashboard.get("/average-fare",{
+                params: {dt_inicio: dt_atual, dt_fim: dt_atual}
+              })
+              setTarifa(tarifaMedia.data.data.tarifa_media)
+              
+              setData(redeAtivaFaixaData(response.data.data.analise_transacional))
 
               setPontos(responsePontoa.data.data)
-          
+       
             }catch(err){
               console.error("erro ao carregar os dados",err)
             }
@@ -44,15 +51,13 @@ export const RedeAtiva = () => {
         fetchData()
         
     }, [dt_inicio,dt_fim,dt_atual])
-
-    useEffect(() => {
-      if(data){
-        setredeAtivaFaixadata(redeAtivaFaixaData(data))
-
-      }
-    
-    }, [data])
-    
+    // useEffect(() => {
+    //   if(!data){
+    //     setTotalTrn(data.reduce((sum, item) => sum + item.trn, 0))
+    //     console.log(totalTrn)
+    //   }
+    // },[data] )
+  
 
     const handleAnoChange = (selectedAno:number) => {
       // console.log("", selectedAno)
@@ -80,9 +85,9 @@ export const RedeAtiva = () => {
           </div>
         </div>
         <div className="flex flex-col laptop:flex-1 laptop:pb-4 gap-4 laptop:justify-between">
-          <TableRedeAtiva data={redeAtivaFaixadata} />
+          <TableRedeAtiva data={data} />
           <div className="laptop:px-[10%] ">
-            <RedeAtivaCard />
+            <RedeAtivaCard tarifa={tarifa} />
 
           </div>
 

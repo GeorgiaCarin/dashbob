@@ -2,6 +2,7 @@
 import Table from '@mui/joy/Table';
 import TrendingUp from '@mui/icons-material/TrendingUp';
 import { formatCurrency } from '../../utils/format-currency';
+import Loading from '../loading';
 
 type dataset = {
   name: string,
@@ -14,6 +15,9 @@ type props = {
 }
 
 export const TableReceita = ({data}:props) => {
+  if (!data || data.length == 0){
+    return <Loading />
+  }
   return (
     <div className='bg-white py-2 rounded-xl border-b-2'>
       <Table borderAxis={"none"} sx={{ 

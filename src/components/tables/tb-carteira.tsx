@@ -1,6 +1,7 @@
 
 import Table from '@mui/joy/Table';
 import { formatCurrency } from '../../utils/format-currency';
+import Loading from '../loading';
 
 type dataset = {
   label: string,
@@ -19,7 +20,9 @@ export const TableCarteira = ({data}:props) => {
     totalQtd: data.reduce((sum, item) => sum + item.qtd, 0),
     totalValue: data.reduce((sum, item) => sum + item.value, 0),
   }
-
+  if (!data || data.length == 0){
+    return <Loading />
+  }
   return (
     <div className=' pb-2'>
       <Table borderAxis={"none"} sx={{

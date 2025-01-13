@@ -1,5 +1,6 @@
 import { Table } from '@mui/joy'
 import { formatCurrency } from '../../utils/format-currency'
+import Loading from '../loading'
 
 
 type data = {
@@ -12,7 +13,10 @@ type props = {
 }
 
 export default function TableInadimplente({data}:props) {
-  return (
+    if (!data || data.length == 0){
+        return <Loading />
+      }
+    return (
     <div className='bg-white rounded-md '>
         <Table borderAxis={"none"} size='md' sx={{ 
             '& tr > *:last-child': { textAlign: 'right' },

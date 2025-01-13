@@ -24,6 +24,7 @@ export const Carteira = () => {
                     params: {dt_inicio,dt_fim}
                 })
                 setData(response.data.data)
+
                 setLoading(false)
 
            
