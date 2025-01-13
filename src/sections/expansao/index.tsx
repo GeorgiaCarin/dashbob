@@ -69,7 +69,7 @@ export default function Expansao() {
             </div>
             <div className='border-b-2'>
             <SimpleLineChart data={data} mesInicial='Jan' dtFim={dt_fim} dtInicio={dt_inicio} />
-            {/* <TableSimples data={data} /> */}
+
 
             </div>
 

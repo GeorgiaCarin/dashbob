@@ -1,18 +1,21 @@
 
 import Table from '@mui/joy/Table';
+import Loading from '../loading';
 
-
-type dataset = {
-  name: string,
-  month: number,
-  total: number
-}
+type TipoDistrato = {
+  tipo: string;
+  distratos: number;
+  total: number;
+};
 
 type props = {
-  data: dataset[]
+  data: TipoDistrato[]
 }
 
 export const TableRedeInativa = ({data}:props) => {
+  if (!data || data.length === 0) {
+    return <Loading />
+  }
   return (
     <div className='bg-white rounded-xl py-1 shadow-sm h-full '>
       <Table borderAxis={"none"} size='lg' sx={{ 
@@ -36,10 +39,10 @@ export const TableRedeInativa = ({data}:props) => {
         </thead>
         <tbody>
           {data.map((item) => (
-            <tr key={item.name}>
-                <td>{item.name}</td>
+            <tr key={item.tipo}>
+                <td>{item.tipo}</td>
                 <td>
-                    {item.month} 
+                    {item.distratos} 
                 </td>
                 <td>
                     {item.total} 

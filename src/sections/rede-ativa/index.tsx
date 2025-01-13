@@ -3,13 +3,13 @@ import { RedeAtivaCard } from "../../components/card/card-rede-ativa"
 import TableRedeAtiva from "../../components/tables/tb-rede-ativa"
 import { SelectValue } from "../../components/select"
 import { ano as anoOptions } from "../../assets/data/data-example"
-import { ExpandCircleDown } from "@mui/icons-material"
+
 import { getLastDate, getStartDate, obterMesesAteAtual } from "../../utils/format-date"
 import { api_dashboard } from "../../services/api"
 import { useEffect, useState } from "react"
 import { redeAtivaFaixaData } from "../../utils/format-data"
 import { SimpleBarChart } from "../../components/charts/bar-chart"
-import { indiceCalc } from "../../utils/indice"
+
 
 export const RedeAtiva = () => {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
@@ -17,13 +17,12 @@ export const RedeAtiva = () => {
     const [data,setData] = useState()
     const [pontos, setPontos] = useState<any>()
     const [redeAtivaFaixadata, setredeAtivaFaixadata] = useState<any>()
-    // const [selectedIndice, setSelectedIndice] = useState(dataIndice[0]);
+
     const dt_atual = getLastDate(new Date().getFullYear(),new Date().getMonth() )
     const dt_inicio = getStartDate(ano,mes)
     const dt_fim = getLastDate(ano,mes)
     const mesOptions = obterMesesAteAtual(ano)
-    // console.log(mesOptions)
-    // console.log(mes)
+
     useEffect(()=> {
       const fetchData = async () => {
 
@@ -44,7 +43,7 @@ export const RedeAtiva = () => {
         }
         fetchData()
         
-    }, [ano,mes])
+    }, [dt_inicio,dt_fim,dt_atual])
 
     useEffect(() => {
       if(data){

@@ -14,7 +14,7 @@ type props = {
 export default function TableInadimplente({data}:props) {
   return (
     <div className='bg-white rounded-md '>
-        <Table borderAxis={"none"} size='lg' sx={{ 
+        <Table borderAxis={"none"} size='md' sx={{ 
             '& tr > *:last-child': { textAlign: 'right' },
             '& tr > *:first-child': { textAlign: 'left' },
 

@@ -24,8 +24,8 @@ export const carteiraData = (data: any) => {
 }
 export const inadimplenciaData = (data: any) => [
   { label: 'Saldo Devedor Total', value: data.saldo_devedor },
-  { label: 'Saldo Devedor Negociado', value: data.perda },
-  { label: 'perda', value: data.negociado },
+  { label: 'Perda', value: data.perda },
+  { label: 'Saldo Devedor Negociado', value: data.negociado },
 
 ];
 
@@ -83,6 +83,7 @@ export const AtivosData = (data: DadosAtivos, mesesOrdenados: string[]): number[
   return mesesOrdenados.map((mes) => data.pontos_ativos[mes as Meses]);
 };
 
+//------------------------------------------- tipos de distrato
 
 type TipoDistrato = {
   tipo: string;
@@ -93,6 +94,7 @@ type TipoDistrato = {
 type DistratoPorTipo = {
   [key: string]: number; 
 };
+
 
 type DataDistrato = {
   distrato_por_tipo: DistratoPorTipo;
@@ -111,3 +113,5 @@ export const tiposDistratos = (data: DataDistrato): TipoDistrato[] => {
     total: totalPorTipo[tipo],
   }));
 };
+
+

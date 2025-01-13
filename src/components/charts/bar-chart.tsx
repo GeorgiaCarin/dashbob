@@ -24,7 +24,7 @@ export const SimpleBarChart = ({ data, dtInicio, dtFim }: props) => {
   }
   const mesesOrdenados = obterMesesIntervalo(dtInicio, dtFim);
   const pontosAtivos = AtivosData(data, mesesOrdenados);
-  console.log(pontosAtivos)
+
   return (
     <div className="bg-white shadow-sm p-4 rounded-xl laptop:rounded-xl">
       <div className="flex justify-between">
