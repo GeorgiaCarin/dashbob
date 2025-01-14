@@ -37,7 +37,7 @@ export const SimpleLineChart = ({data,dtInicio,dtFim}: props) => {
                     <div key={index} className="text-center">
                         <p className="font-medium">{item.name}</p>
                         <p className={`text-xl font-semibold`} style={{ color: item.color }}>
-                        {item.pontos[item.pontos.length - 1]}
+                        {item.value[item.value.length - 1]}
                         </p>
                     </div>
                     ))}
@@ -49,7 +49,7 @@ export const SimpleLineChart = ({data,dtInicio,dtFim}: props) => {
         height={250}
         series={dadosTransformados.map((item) => ({
           curve: 'linear',
-          data: item.pontos,
+          data: item.value,
           label: item.name,
         }))}
         xAxis={[{ scaleType: 'point', data: mesesOrdenados }]}
