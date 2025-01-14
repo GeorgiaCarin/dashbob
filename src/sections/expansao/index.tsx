@@ -19,28 +19,24 @@ export default function Expansao() {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
     const [mes, setMes] = useState<number>(new Date().getMonth() )
     const [data,setData] = useState<Dados>()
-
-    const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<string | null>(null);
     const dt_inicio = getStartDate(ano,mes)
     const dt_fim = getLastDate(ano,mes)
  
 
     useEffect(()=> {
         const fetchData = async () => {
-            setLoading(true)
-            setError(null)
+   
        
             try {
                 const response = await api_dashboard.get("/expansion-graphic",{
                     params: {dt_inicio: dt_inicio,dt_fim: dt_fim}
                 })
                 await setData(response.data.data)
-                setLoading(false)
+       
               
             }catch(err){
-                setError("Erro ao carregar dados da API")
-                setLoading(false)
+                console.error("erro",err)
+
             }
         }
         fetchData()

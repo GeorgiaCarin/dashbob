@@ -36,7 +36,7 @@ export default function TableInadimplente({data}:props) {
                         {item.label}
                     </td>
                     <td>
-                        {formatCurrency(item.value)} 
+                        {formatCurrency(item.value).slice()} 
                     </td>
                 
                 </tr>

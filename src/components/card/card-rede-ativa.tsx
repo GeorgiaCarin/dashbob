@@ -1,7 +1,7 @@
 import { formatCurrency } from "../../utils/format-currency"
 
 type props = {
-    tarifa: number,
+    tarifa?: number,
     totalTrn: number
 }
 export const RedeAtivaCard = ({tarifa,totalTrn}:props) => {

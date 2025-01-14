@@ -55,13 +55,13 @@ export const redeAtivaFaixaData = (data: any) => [
 
 type Meses = 'janeiro' | 'fevereiro' | 'marco' | 'abril' | 'maio' | 'junho' | 'julho' | 'agosto' | 'setembro' | 'outubro' | 'novembro' | 'dezembro';
 
-interface Dados {
+interface DadosExpansao {
   cadastrados: Record<Meses, number>;
   liberados: Record<Meses, number>;
   instalados: Record<Meses, number>;
 }
 
-export const transformarDadosParaGrafico = (data: Dados, mesesOrdenados: string[]) => {
+export const transformarDadosParaGrafico = (data: DadosExpansao, mesesOrdenados: string[]) => {
   const nomes = ['Cadastrados', 'Liberados', 'Instalados'];
   const cores = ['#13287E', '#8FC043', '#c41515'];
 
@@ -69,11 +69,11 @@ export const transformarDadosParaGrafico = (data: Dados, mesesOrdenados: string[
 
   return datasets.map((key, index) => ({
     name: nomes[index],
-    pontos: mesesOrdenados.map((mes) => data[key][mes as Meses]),
+    value: mesesOrdenados.map((mes) => data[key][mes as Meses]),
     color: cores[index],
   }));
 };
-
+//----------------------------------------------------
 
 interface DadosAtivos {
   pontos_ativos: Record<Meses, number>;
@@ -84,6 +84,45 @@ export const AtivosData = (data: DadosAtivos, mesesOrdenados: string[]): number[
 };
 
 //------------------------------------------- tipos de distrato
+interface DadosInativa {
+  inoperante: Record<Meses, number>;
+  distrato: Record<Meses, number>;
+  cobranca: Record<Meses, number>;
+}
+
+export const dadosRedeInativaGrafico = (data: DadosInativa, mesesOrdenados: string[]) => {
+  if (!data) {
+    console.error("Os dados estão indefinidos.");
+    return [];
+  }
+
+  const nomes = ['Inoperante', 'Distrato', 'Cobranca'];
+  const cores = ['#13287E', '#8FC043', '#c41515'];
+  const datasets = ['inoperante', 'distrato', 'cobranca'] as const;
+
+  return datasets.map((key, index) => {
+    if (!data[key]) {
+      console.warn(`Chave ${key} não encontrada em data.`);
+      return {
+        name: nomes[index],
+        value: mesesOrdenados.map(() => 0), // Retorna 0 se a chave não existir
+        color: cores[index],
+      };
+    }
+
+    return {
+      name: nomes[index],
+      value: mesesOrdenados.map((mes) => {
+        const valor = data[key][mes as Meses] ?? 0;
+        return valor < 0 ? 0 : valor;
+      }),
+      color: cores[index],
+    };
+  });
+};
+
+
+//----------------------------------------------------
 
 type TipoDistrato = {
   tipo: string;
@@ -114,4 +153,4 @@ export const tiposDistratos = (data: DataDistrato): TipoDistrato[] => {
   }));
 };
 
-
+//-----------------------------------------------------------

@@ -44,9 +44,9 @@ export const formatDate = (date: Date): string => {
     
 
     if (ano < anoAtual) {
-    
+
         return meses;
-    } else if (ano === anoAtual) {
+    } else if (ano == anoAtual) {
 
       return meses.slice(0, mesAtual + 1);
     }
