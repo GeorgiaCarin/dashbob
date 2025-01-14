@@ -19,7 +19,7 @@ export default function TableSimples({data}:props) {
     <div className='bg-white shadow-md rounded-md'>
         <Table borderAxis={"none"} size='lg' sx={{ 
             '& tr > *:last-child': { textAlign: 'right' },
-            '& tr > *:first-child': { textAlign: 'left' },
+            '& tr > *:first-of-type': { textAlign: 'left' },
             fontSize: {
                 xs: '12px',
                 sm:'14px',

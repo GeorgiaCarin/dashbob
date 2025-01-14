@@ -22,8 +22,8 @@ export const TableReceita = ({data}:props) => {
     <div className='bg-white py-2 rounded-xl border-b-2'>
       <Table borderAxis={"none"} sx={{ 
         '& tr > *:last-child': { textAlign: 'left' },
-        '& tr > *:first-child': { textAlign: 'left' },
-        '& tr > *:not(:first-child):not(:last-child)': { textAlign: 'center' },
+        '& tr > *:first-of-type': { textAlign: 'left' },
+        '& tr > *:not(:first-of-type):not(:last-child)': { textAlign: 'center' },
         borderRadius: '20px',
         fontSize: {
           xs: '12px',

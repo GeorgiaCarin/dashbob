@@ -20,7 +20,7 @@ export default function TableInadimplente({data}:props) {
     <div className='bg-white rounded-md '>
         <Table borderAxis={"none"} size='md' sx={{ 
             '& tr > *:last-child': { textAlign: 'right' },
-            '& tr > *:first-child': { textAlign: 'left' },
+            '& tr > *:first-of-type': { textAlign: 'left' },
 
         }}>
         <thead>

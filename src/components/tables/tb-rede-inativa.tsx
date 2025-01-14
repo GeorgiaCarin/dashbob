@@ -21,8 +21,8 @@ export const TableRedeInativa = ({data}:props) => {
       <Table borderAxis={"none"} size='lg' sx={{ 
        
         '& tr > *:last-child': { textAlign: 'right' },
-        '& tr > *:first-child': { textAlign: 'left' },
-        '& tr > *:not(:first-child):not(:last-child)': { textAlign: 'center' },
+        '& tr > *:first-of-type': { textAlign: 'left' },
+        '& tr > *:not(:first-of-type):not(:last-child)': { textAlign: 'center' },
         fontSize: {
           xs: '14px',
           sm:'14px',
