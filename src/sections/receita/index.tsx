@@ -8,6 +8,7 @@ import { mes as mesOptions } from "../../assets/data/data-receita"
 import { useEffect, useState } from "react"
 import { getLastDate, getStartDate } from "../../utils/format-date"
 import { api_dashboard } from "../../services/api"
+import './types'
 const dataIndice = ['Subestabelecido','Loja Própria','Negocial']
 const anoOptions = ['2024', '2023', '2022']
 export const Receita = () => {
@@ -17,7 +18,7 @@ export const Receita = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [selectedIndice, setSelectedIndice] = useState(dataIndice[0]);
-
+    
     useEffect(()=> {
         const fetchData = async () => {
             setLoading(true)
@@ -47,8 +48,7 @@ export const Receita = () => {
     const handleMesChange = (selectedMes) => {
         setMes(selectedMes)
     }
-    
-    
+
 
     return (
         <div className="w-full  flex flex-col gap-2 rounded-lg laptop:rounded-2xl">
@@ -63,11 +63,7 @@ export const Receita = () => {
             <div className="flex flex-col laptop:flex-row gap-2 laptop:gap-4">
                 <div className="laptop:flex laptop:flex-col laptop:flex-1 bg-white p-2 shadow-sm rounded-xl border-b-2">
                     <div className="flex justify-between">
-                        <div>
-                            <div className="font-medium text-lg">{selectedIndice}</div>
-                            {/* <div className="title text-secondary-green">{formatCurrency(data[0].faturamento)}</div> */}
-                        </div>
-                        <div className="label flex gap-1 h-min justify-center items-center "><ExpandCircleDown /><p>65%</p></div>
+                       
                     </div>
                     {/* <SimpleBarChart /> */}
                 </div>
