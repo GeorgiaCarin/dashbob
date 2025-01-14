@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { loginApi} from "../../services/AuthService";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../../assets/logo/rmv logo-01.png"
 export const LoginForm = () => {
   const navigate = useNavigate()
   const formik = useFormik({
@@ -35,6 +35,7 @@ export const LoginForm = () => {
         onSubmit={formik.handleSubmit}
         className="bg-white p-6 rounded shadow-md w-full max-w-sm"
       >
+        <img src={logo} alt="" className="w-full p-4" />
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
 
         {formik.errors.login && formik.touched.login && (
@@ -96,7 +97,7 @@ export const LoginForm = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 bg-primary-green text-white py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full bg-primary-green text-white py-2 rounded hover:bg-secondary-green focus:outline-none focus:ring focus:ring-secondary-green"
           disabled={formik.isSubmitting}
         >
           {formik.isSubmitting ? "Carregando..." : "Entrar"}
