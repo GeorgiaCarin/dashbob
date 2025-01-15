@@ -15,16 +15,18 @@ export const RedeAtiva = () => {
   const [mes, setMes] = useState<number>(new Date().getMonth())
   const [data,setData] = useState<any>()
   const [pontos, setPontos] = useState<any>()
-  const [tarifa, setTarifa] = useState<number>()
-  const [totalTrn, setTotalTrn] = useState<number>()
+  const [tarifa, setTarifa] = useState<number>(0)
+  const [totalTrn, setTotalTrn] = useState<number>(0)
   const dt_atual = getLastDate(new Date().getFullYear(),new Date().getMonth() )
   const dt_inicio = getStartDate(ano,mes)
   const dt_fim = getLastDate(ano,mes)
   const mesOptions = obterMesesAteAtual(ano)
   const anoOptions = [2022, 2023, 2024, 2025]
-  // const handleSum = redeAtivaFaixadata.reduce((sum, item) => sum + item.trn, 0);
+  
+  // if(data){
+  //   setTotalTrn(data.reduce((sum, item) => sum + item.trn, 0));
+  // }
 
-  // console.log(totalTrn);
 
   useEffect(()=> {
     const fetchData = async () => {
@@ -42,23 +44,16 @@ export const RedeAtiva = () => {
             setTarifa(tarifaMedia.data.data.tarifa_media)
             
             setData(redeAtivaFaixaData(response.data.data.analise_transacional))
-
-              setPontos(responsePontoa.data.data)
-       
-            }catch(err){
-              console.error("erro ao carregar os dados",err)
-            }
-        }
-        fetchData()
-        
-    }, [dt_inicio,dt_fim,dt_atual])
-    // useEffect(() => {
-    //   if(!data){
-    //     setTotalTrn(data.reduce((sum, item) => sum + item.trn, 0))
-    //     console.log(totalTrn)
-    //   }
-    // },[data] )
-  
+            setTotalTrn(response.data.data.analise_transacional.total.media_transacoes)
+            setPontos(responsePontos.data.data)
+      
+          }catch(err){
+            console.error("erro ao carregar os dados",err)
+          }
+      }
+      fetchData()
+      
+  }, [dt_inicio,dt_fim,dt_atual])
 
     const handleAnoChange = (selectedAno:number) => {
       // console.log("", selectedAno)
@@ -88,7 +83,7 @@ export const RedeAtiva = () => {
         <div className="flex flex-col laptop:flex-1 laptop:pb-4 gap-4 laptop:justify-between">
           <TableRedeAtiva data={data} />
           <div className="laptop:px-[10%] ">
-            <RedeAtivaCard tarifa={tarifa} totalTrn={12} />
+            <RedeAtivaCard tarifa={tarifa} totalTrn={totalTrn} />
 
           </div>
 
