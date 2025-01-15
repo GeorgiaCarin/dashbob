@@ -18,16 +18,15 @@ export const RedeAtiva = () => {
     const [pontos, setPontos] = useState<any>()
     const [tarifa, setTarifa] = useState<number>()
     const [totalTrn, setTotalTrn] = useState<number>()
-    const dt_atual = getLastDate(new Date().getFullYear(),new Date().getMonth() )
-    const dt_inicio = getStartDate(ano,mes)
-    const dt_fim = getLastDate(ano,mes)
     const mesOptions = obterMesesAteAtual(ano)
     // const handleSum = redeAtivaFaixadata.reduce((sum, item) => sum + item.trn, 0);
-
+    const dt_inicio = getStartDate(ano,mes)
+    const dt_fim = getLastDate(ano,mes)
+    console.log(mes)
     // console.log(totalTrn); 
     useEffect(()=> {
       const fetchData = async () => {
-
+        const dt_atual = getLastDate(new Date().getFullYear(),new Date().getMonth() )
         try {
               const response = await api_dashboard.get("/analyze-transactional",{
                   params: {dt_inicio: dt_atual, dt_fim: dt_atual}
@@ -50,7 +49,7 @@ export const RedeAtiva = () => {
         }
         fetchData()
         
-    }, [dt_inicio,dt_fim,dt_atual])
+    }, [dt_fim,dt_inicio])
     // useEffect(() => {
     //   if(!data){
     //     setTotalTrn(data.reduce((sum, item) => sum + item.trn, 0))
@@ -59,13 +58,13 @@ export const RedeAtiva = () => {
     // },[data] )
   
 
-    const handleAnoChange = (selectedAno:number) => {
+    const handleAnoChange = (selectedAno:string) => {
       // console.log("", selectedAno)
-        setAno(selectedAno)
+        setAno(Number(selectedAno))
     }
 
-    const handleMesChange = (selectedMes) => {
-        setMes(selectedMes)
+    const handleMesChange = (selectedMes:string) => {
+        setMes(Number(selectedMes))
     }
     
   return (
