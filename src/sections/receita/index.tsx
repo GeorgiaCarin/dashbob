@@ -1,28 +1,21 @@
 import SimpleBarChart from "../../components/charts/bar-chart"
 import { SelectValue } from "../../components/select"
 import { TableReceita } from "../../components/tables/tb-receita"
-import ExpandCircleDown from "@mui/icons-material/ExpandCircleDown"
-import {indices as data} from "../../assets/data/data-receita"
-import { formatCurrency } from "../../utils/format-currency"
-import { mes as mesOptions } from "../../assets/data/data-receita"
 import { useEffect, useState } from "react"
-import { getLastDate, getStartDate } from "../../utils/format-date"
+import { getLastDate, getStartDate, obterMesesAteAtual } from "../../utils/format-date"
 import { api_dashboard } from "../../services/api"
 import './types'
+import { SelectMes } from "../../components/select/select-mes"
 const dataIndice = ['Subestabelecido','Loja Própria','Negocial']
-const anoOptions = ['2024', '2023', '2022']
 export const Receita = () => {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
     const [mes, setMes] = useState<number>(new Date().getMonth() + 1)
     const [data,setData] = useState<any[]>([])
-    const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<string | null>(null);
-    const [selectedIndice, setSelectedIndice] = useState(dataIndice[0]);
-    
+
+    const mesOptions = obterMesesAteAtual(ano)
+    const anoOptions = [2025, 2024, 2023, 2022]
     useEffect(()=> {
         const fetchData = async () => {
-            setLoading(true)
-            setError(null)
             const dt_inicio = getStartDate(ano,mes)
             const dt_fim = getLastDate(ano,mes)
             try {
@@ -30,22 +23,22 @@ export const Receita = () => {
                     params: {dt_inicio,dt_fim}
                 })
                 setData(response.data)
-                setLoading(false)
+
                 // console.log(response.data)
             }catch(err){
-                setError("Erro ao carregar dados da API")
-                setLoading(false)
+                console.error("Erro ao carregar dados da API")
+
             }
         }
         fetchData()
         
     }, [ano,mes])
 
-    const handleAnoChange = (selectedAno) => {
+    const handleAnoChange = (selectedAno:number) => {
         setAno(selectedAno)
     }
 
-    const handleMesChange = (selectedMes) => {
+    const handleMesChange = (selectedMes:number) => {
         setMes(selectedMes)
     }
 
@@ -55,8 +48,8 @@ export const Receita = () => {
             <div className="flex flex-col tablet:flex-row tablet:justify-between gap-2 bg-white shadow-sm p-2 rounded-xl ">
                 <div className="title text-center">receita</div>
                 <div className="flex gap-4 justify-between">
-                    <SelectValue title='indice' options={dataIndice} onChange={(value) => setSelectedIndice(value)}/>
-                    <SelectValue title='Mês' options={mesOptions} onChange={handleMesChange}/>
+                    {/* <SelectValue title='indice' options={dataIndice} onChange={(value) => setSelectedIndice(value)}/> */}
+                    <SelectMes title='Mês' options={mesOptions} onChange={handleMesChange}/>
                     <SelectValue title='Ano' options={anoOptions} onChange={handleAnoChange} />
                 </div>
             </div>

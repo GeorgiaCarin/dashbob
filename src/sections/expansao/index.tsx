@@ -1,10 +1,10 @@
 
 import { SelectValue } from '../../components/select'
 import { SimpleLineChart } from '../../components/charts/line-chart-expansao'
-import {ano as anoOptions, mes as  mesOptions} from "../../assets/data/data-example"
 import { useEffect, useState } from 'react'
-import { getLastDate, getStartDate } from '../../utils/format-date'
+import { getLastDate, getStartDate, obterMesesAteAtual } from '../../utils/format-date'
 import { api_dashboard } from '../../services/api'
+import { SelectMes } from '../../components/select/select-mes'
 
 
 type Meses = 'janeiro' | 'fevereiro' | 'marco' | 'abril' | 'maio' | 'junho' | 'julho' | 'agosto' | 'setembro' | 'outubro' | 'novembro' | 'dezembro';
@@ -21,12 +21,12 @@ export default function Expansao() {
     const [data,setData] = useState<Dados>()
     const dt_inicio = getStartDate(ano,mes)
     const dt_fim = getLastDate(ano,mes)
- 
+    const mesOptions = obterMesesAteAtual(ano)
+    const anoOptions = [2025, 2024, 2023, 2022]
 
     useEffect(()=> {
         const fetchData = async () => {
-   
-       
+
             try {
                 const response = await api_dashboard.get("/expansion-graphic",{
                     params: {dt_inicio: dt_inicio,dt_fim: dt_fim}
@@ -41,12 +41,12 @@ export default function Expansao() {
         }
         fetchData()
         
-    }, [ano,mes])
-    const handleAnoChange = (selectedAno) => {
+    }, [dt_inicio,dt_fim])
+    const handleAnoChange = (selectedAno:number) => {
         setAno(selectedAno)
     }
 
-    const handleMesChange = (selectedMes) => {
+    const handleMesChange = (selectedMes:number) => {
         setMes(selectedMes)
     }
   
@@ -57,7 +57,7 @@ export default function Expansao() {
                 <div className="flex gap-4 justify-between">
                     <div className="title text-center">Expansão</div>
                     <div className='flex gap-4 '>
-                        <SelectValue title='Mês' options={mesOptions} onChange={handleMesChange} />
+                        <SelectMes title='Mês' options={mesOptions} onChange={handleMesChange} />
                         <SelectValue title='Ano' options={anoOptions} onChange={handleAnoChange}/>
 
                     </div>
