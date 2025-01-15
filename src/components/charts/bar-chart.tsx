@@ -8,7 +8,7 @@ import { indiceCalc } from '../../utils/indice';
 
 type Meses = 'janeiro' | 'fevereiro' | 'marco' | 'abril' | 'maio' | 'junho' | 'julho' | 'agosto' | 'setembro' | 'outubro' | 'novembro' | 'dezembro';
 interface DadosAtivos {
-  pontos_ativos: Record<Meses, number>;
+  faturamento_pontos_ativos: Record<Meses, number>;
 }
 
 type props = {
@@ -24,6 +24,7 @@ export const SimpleBarChart = ({ data, dtInicio, dtFim }: props) => {
   }
   const mesesOrdenados = obterMesesIntervalo(dtInicio, dtFim);
   const pontosAtivos = AtivosData(data, mesesOrdenados);
+
 
   return (
     <div className="bg-white shadow-sm p-4 rounded-xl laptop:rounded-xl">
