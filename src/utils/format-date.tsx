@@ -33,24 +33,22 @@ export const formatDate = (date: Date): string => {
     return `${day}-${month}-${year}`;
   }
 
-  export const obterMesesAteAtual = (ano: number): string[] => {
-    const meses = [
-      'janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho',
+export const obterMesesAteAtual = (ano: number): { label: string; value: number }[] => {
+  const meses = [
+      'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
       'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
-    ];
-    const dataAtual = new Date();
-    const anoAtual = dataAtual.getFullYear();
-    const mesAtual = dataAtual.getMonth(); 
-    
+  ];
+  const dataAtual = new Date();
+  const anoAtual = dataAtual.getFullYear();
+  const mesAtual = dataAtual.getMonth();
 
-    if (ano < anoAtual) {
+  if (ano < anoAtual) {
+      return meses.map((mes, index) => ({ label: mes, value: index }));
+  } else if (ano == anoAtual) {
+      return meses.slice(0, mesAtual + 1).map((mes, index) => ({ label: mes, value: index }));
+  }
 
-        return meses;
-    } else if (ano == anoAtual) {
+  return [];
+};
 
-      return meses.slice(0, mesAtual + 1);
-    }
-  
-    return [];
-  };
   

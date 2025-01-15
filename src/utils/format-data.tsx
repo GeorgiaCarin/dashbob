@@ -76,11 +76,11 @@ export const transformarDadosParaGrafico = (data: DadosExpansao, mesesOrdenados:
 //----------------------------------------------------
 
 interface DadosAtivos {
-  pontos_ativos: Record<Meses, number>;
+  faturamento_pontos_ativos: Record<Meses, number>;
 }
 
 export const AtivosData = (data: DadosAtivos, mesesOrdenados: string[]): number[] => {
-  return mesesOrdenados.map((mes) => data.pontos_ativos[mes as Meses]);
+  return mesesOrdenados.map((mes) => data.faturamento_pontos_ativos[mes as Meses]);
 };
 
 //------------------------------------------- tipos de distrato
