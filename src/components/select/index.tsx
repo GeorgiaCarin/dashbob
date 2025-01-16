@@ -4,16 +4,16 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 type Props = {
     title: string;
-    options: (string | number )[];
-    initialValue?: string | number;
-    onChange?: (value: string) => void;
+    options: number[];
+    initialValue?: number;
+    onChange?: (value: number) => void;
 };
 
 export const SelectValue = ({ title, options, onChange,initialValue }: Props) => {
-    const [value, setValue] = React.useState<string | number >(initialValue || options[0] || "");
+    const [value, setValue] = React.useState<string>(initialValue || options[0] || "");
 
     const handleChange = (event: SelectChangeEvent<string>) => {
-        const newValue = event.target.value;
+        const newValue = Number(event.target.value);
         setValue(newValue);
         if (onChange) {
             onChange(newValue);
@@ -29,7 +29,7 @@ export const SelectValue = ({ title, options, onChange,initialValue }: Props) =>
             }}>{title}</InputLabel>
             <Select
                 autoWidth
-                value={value}
+                value={value.toString()}
                 onChange={handleChange}
                 label={title}
                 IconComponent={KeyboardArrowDown}
