@@ -11,10 +11,38 @@ export const Receita = () => {
     const [ano, setAno] = useState<number>(new Date().getFullYear())
     const [mes, setMes] = useState<number>(new Date().getMonth() + 1)
     const [data,setData] = useState<any[]>([])
-
     const mesOptions = obterMesesAteAtual(ano)
     const anoOptions = [2025, 2024, 2023, 2022]
-    useEffect(()=> {
+
+    const indices = [
+        {
+            label: "Substabelecido",
+            nameRoute: 'substabelecido-graphic',
+        },
+        {
+            label: "Loja Própria",
+            nameRoute: 'lojap-graphic',
+        },
+        {
+            label: "Negocial",
+            nameRoute: 'negocial-graphic',
+        },
+        {
+            label: "Pix",
+            nameRoute: 'pix-graphic',
+        },
+        {
+            label: "Recarga",
+            nameRoute: 'recarga-graphic',
+        },
+        {
+            label: "Telesena",
+            nameRoute: 'telesena-graphic',
+        },
+        
+        
+    ]
+    useEffect(() => {
         const fetchData = async () => {
             const dt_inicio = getStartDate(ano,mes)
             const dt_fim = getLastDate(ano,mes)
